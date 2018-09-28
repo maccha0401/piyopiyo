@@ -6,6 +6,7 @@
     <!-- タイトル行の出力 -->
     <tr class="item-list">
       <th class="item-title"><%= t "dictionary.item.likes" %></th>
+      <th class="item-title"><%= t "dictionary.item.views" %></th>
       <th class="item-title"><%= t "dictionary.item.knowhow_class" %></th>
       <th class="item-title"><%= t "dictionary.item.title" %></th>
       <th class="item-title"><%= t "dictionary.item.category_name" %></th>
@@ -19,6 +20,7 @@
     <% @knowhows.each do |knowhow| %>
       <tr class="item-list">
         <td class="item-content-knowhow"><%= knowhow.likes_count %><%= t "dictionary.item.likes" %></td>
+        <td class="item-content-knowhow"><%= knowhow.views_count %><%= t "dictionary.item.views" %></td>
         <td class="item-content-knowhow"><%= put_knowhow_class(knowhow) %></td>
         <td class="item-content-knowhow"><%= link_to knowhow.title, knowhow_path(knowhow.id)  %></td>
         <td class="item-content-knowhow"><%= knowhow.category.name %></td>

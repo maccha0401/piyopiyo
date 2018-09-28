@@ -29,11 +29,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-# ★★★後で修正する。★★★
-    if Category.find(params[:id]).destroy
-      flash[:danger] = t("dictionary.message.category_deleted")
+    # 指定された分類に属するノウハウが存在する場合、削除しない。
+    if Knowhow.find_by(category_id: params[:id])
+      flash[:danger] = t("dictionary.message.category_cannot_delete")
     else
-      flash[:danger] = t("dictionary.message.category_delete_failed")
+      if Category.find(params[:id]).destroy
+        flash[:notice] = t("dictionary.message.category_deleted")
+      else
+        flash[:danger] = t("dictionary.message.category_delete_failed")
+      end
     end
     redirect_to categories_path
   end

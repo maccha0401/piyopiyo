@@ -27,3 +27,4 @@ ja:
         create_user_id: "作成者ID"
         update_user_id: "更新者ID"
         likes_count: "お気に入り数"
+        views_count: "閲覧数"

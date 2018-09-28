@@ -27,7 +27,7 @@
           <!-- ■ヘッダー@ログイン済 -->
           <% if logged_in? %>
             <!-- ランキング（左側） -->
-            <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.ranking" %><% end %>
+            <%= link_to controller: :knowhows, action: :index, index_type: "views", class: "header-item" do %><%= t "dictionary.button.ranking" %><% end %>
             <!-- 検索（左側） -->
             <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.search" %><% end %>
             <!-- 新規ノウハウ（左側） -->

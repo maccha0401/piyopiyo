@@ -8,6 +8,9 @@ class KnowhowsController < ApplicationController
     if params[:index_type] == "likes"
       @knowhows = current_user.like_knowhows.order(updated_at: :desc)
       @page_title = "dictionary.title.your_like_list"
+    elsif params[:index_type] == "views"
+      @knowhows = Knowhow.all.order(views_count: :desc).order(updated_at: :desc)
+      @page_title = "dictionary.title.ranking"
     else
       @knowhows = Knowhow.all.order(updated_at: :desc)
       @page_title = "dictionary.title.knowhow_list"
@@ -15,6 +18,11 @@ class KnowhowsController < ApplicationController
     # ★★★kaminar
     # @meganes = Megane.order(updated_at: :desc).page(params[:page]).per(3)
     # ★★★kaminar
+  end
+
+  def show
+    # 閲覧時にカウンターをアップする。
+    @knowhow.increment!(:views_count, @knowhow.id)
   end
 
   def new
@@ -47,7 +55,7 @@ class KnowhowsController < ApplicationController
 
   def destroy
     if @knowhow.destroy
-      flash[:danger] = t("dictionary.message.knowhow_deleted")
+      flash[:notice] = t("dictionary.message.knowhow_deleted")
       redirect_to :root
     else
       flash[:danger] = t("dictionary.message.knowhow_delete_failed")

@@ -135,6 +135,8 @@ ja:
       none_update: "更新なし"
       none_language: "設定なし"
       delete_attachment: "添付ファイルを削除する。"
+      category_cannot_delete: "指定された分類に属するノウハウが存在するため、削除できません。"
+      language_cannot_delete: "指定された言語に属するノウハウが存在するため、削除できません。"
   activerecord:
     errors:
       messages:

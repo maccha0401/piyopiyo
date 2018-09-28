@@ -135,6 +135,8 @@ en:
       none_update: "Nnoe Update"
       none_language: "None Setting"
       delete_attachment: "Delete Attachment"
+      category_cannot_delete: "Some KnowHow Use This Category."
+      language_cannot_delete: "Some KnowHow Use This Language."
   time:
   # 追加
     am: AM

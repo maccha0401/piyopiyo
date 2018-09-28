@@ -39,8 +39,11 @@ class UsersController < ApplicationController
     if current_user.id == params[:id]
       flash[:danger] = t("dictionary.message.user_delete_failed")
     else
-      User.find(params[:id]).destroy
-      flash[:danger] = t("dictionary.message.user_deleted")
+      if User.find(params[:id]).destroy
+        flash[:notice] = t("dictionary.message.user_deleted")
+      else
+        flash[:danger] = t("dictionary.message.user_delete_failed")
+      end
     end
     redirect_to users_index_path
   end

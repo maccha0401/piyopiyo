@@ -29,11 +29,15 @@ class LanguagesController < ApplicationController
   end
 
   def destroy
-# ★★★後で修正する。★★★
-    if Language.find(params[:id]).destroy
-      flash[:danger] = t("dictionary.message.language_deleted")
+    # 指定された言語に属するノウハウが存在する場合、削除しない。
+    if Knowhow.find_by(language_id: params[:id])
+      flash[:danger] = t("dictionary.message.language_cannot_delete")
     else
-      flash[:danger] = t("dictionary.message.language_delete_failed")
+      if Language.find(params[:id]).destroy
+        flash[:notice] = t("dictionary.message.language_deleted")
+      else
+        flash[:danger] = t("dictionary.message.language_delete_failed")
+      end
     end
     redirect_to languages_path
   end
