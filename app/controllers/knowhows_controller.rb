@@ -5,7 +5,13 @@ class KnowhowsController < ApplicationController
   before_action :set_params_knowhow, only: [:create]
 
   def index
-    @knowhows = Knowhow.all.order(updated_at: :desc)
+    if params[:index_type] == "likes"
+      @knowhows = current_user.like_knowhows.order(updated_at: :desc)
+      @page_title = "dictionary.title.your_like_list"
+    else
+      @knowhows = Knowhow.all.order(updated_at: :desc)
+      @page_title = "dictionary.title.knowhow_list"
+    end
     # ★★★kaminar
     # @meganes = Megane.order(updated_at: :desc).page(params[:page]).per(3)
     # ★★★kaminar

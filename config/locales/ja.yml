@@ -35,6 +35,7 @@ ja:
     # ヘッダー
       ranking: "ランキング"
       search: "検索"
+      new_knowhow: "新規ノウハウ"
       admin_page: "管理画面"
       like_page: "お気に入り"
       user_page: "ユーザ情報"
@@ -70,6 +71,7 @@ ja:
       create_user_name: "作成者"
       update_user_name: "更新者"
       likes: "Likes"
+      views: "Views"
     # comment
       comment: "コメント"
       comment_user_name: "投稿者"

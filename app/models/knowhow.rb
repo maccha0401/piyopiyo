@@ -33,9 +33,6 @@ class Knowhow < ApplicationRecord
   # attachment にアップローダを指定。
   mount_uploader :attachment, AttachmentUploader
 
-  # ★★★後で修正！★★★
   # ■お気に入り
-  # has_many :likes, dependent: :destroy
-  # has_many :like_meganes, through: :likes, source: :megane
-  # ★★★後で修正！★★★
+  has_many :likes, dependent: :destroy
 end

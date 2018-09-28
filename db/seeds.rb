@@ -29,3 +29,16 @@ def CreateLanguage(string)
 end
 CreateLanguage("C言語")
 CreateLanguage("shell script")
+
+# ■ノウハウの作成
+def CreateKnowhow(string)
+  Knowhow.create!(
+    knowhow_class: false,
+    category_id: 1,
+    title: string,
+    content: string,
+    create_user_id: 1
+  )
+end
+CreateKnowhow("abc")
+CreateKnowhow("rrrrrrrrrrrrrrrrrrrrrrr")

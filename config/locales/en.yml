@@ -35,6 +35,7 @@ en:
     # ヘッダー
       ranking: "Ranking"
       search: "Search"
+      new_knowhow: "New Knowhow"
       admin_page: "Admin"
       like_page: "Likes"
       user_page: "User"
@@ -70,6 +71,7 @@ en:
       create_user_name: "Create User"
       update_user_name: "Update User"
       likes: "Likes"
+      views: "Views"
     # comment
       comment: "Comment"
       comment_user_name: "Comment User"

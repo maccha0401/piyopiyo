@@ -17,9 +17,7 @@ class User < ApplicationRecord
   has_many :knowhows, class_name: "Knowhow", foreign_key: :create_user_id, primary_key: :id
   has_many :knowhows, class_name: "Knowhow", foreign_key: :update_user_id, primary_key: :id
 
-  # ★★★後で修正！★★★
   # ■お気に入り
-  # has_many :likes, dependent: :destroy
-  # has_many :like_meganes, through: :likes, source: :megane
-  # ★★★後で修正！★★★
+  has_many :likes, dependent: :destroy
+  has_many :like_knowhows, through: :likes, source: :knowhow
 end

@@ -33,14 +33,6 @@ Rails.application.routes.draw do
   # ■language
   resources :languages, only: [:index, :create, :update, :destroy]
 
-
-# ★★★後で修正する！！★★★
-  # # ■like
-  # resources :likes, only: [:index, :create, :destroy] do
-  #   collection do
-  #     get :like_add
-  #     get :like_delete
-  #   end
-  # end
-# ★★★後で修正する！！★★★
+  # ■like
+  resources :likes, only: [:create, :destroy]
 end

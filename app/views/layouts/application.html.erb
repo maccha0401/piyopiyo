@@ -26,10 +26,12 @@
           <%= link_to :root, class: "header-item" do %><%= image_tag "logo.png", size: "45x33" %><% end %>
           <!-- ■ヘッダー@ログイン済 -->
           <% if logged_in? %>
-            <!-- ラインキング（左側） -->
+            <!-- ランキング（左側） -->
             <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.ranking" %><% end %>
             <!-- 検索（左側） -->
             <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.search" %><% end %>
+            <!-- 新規ノウハウ（左側） -->
+            <%= link_to new_knowhow_path, class: "header-item" do %><%= t "dictionary.button.new_knowhow" %><% end %>
           <% end %>
         </div>
         <div class="header-right">
@@ -40,7 +42,7 @@
               <%= link_to :admin_page, class: "header-item" do %><%= t "dictionary.button.admin_page" %><% end %>
             <% end %>
             <!-- お気に入り画面（右側） -->
-            <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.like_page" %><% end %>
+            <%= link_to controller: :knowhows, action: :index, index_type: "likes", class: "header-item" do %><%= t "dictionary.button.like_page" %><% end %>
             <!-- ユーザ情報（右側） -->
             <%= link_to users_path, class: "header-item" do %><%= t "dictionary.button.user_page" %><% end %>
             <!-- ログアウト（右側） -->

@@ -1,0 +1,9 @@
+<% like = current_user.likes.find_by(knowhow_id: @knowhow.id) %>
+<% if like.present? %>
+  <%= link_to like_path(like.id), method: :delete, remote: true, class: "red-star" do %>
+    <%= image_tag "like.png", size: "45x45" %><% end %>
+<% else %>
+  <%= link_to likes_path(knowhow_id: @knowhow.id), method: :post, remote: true, class: "white-star" do %>
+    <%= image_tag "unlike.png", size: "45x45" %><% end %>
+<% end %>
+<span class="likes-count"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></span>

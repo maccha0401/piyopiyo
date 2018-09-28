@@ -5,11 +5,16 @@
   <table class="item-left">
     <tr class="item">
       <!-- お気に入りの出力 -->
-      <th class="item-title"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></th>
-    </tr>
-    <tr class="item">
+      <th class="item-title">
+        <div id="star"><%= render partial: "likes/like", locals: {knowhow: @knowhow} %></div>
+      </th>
       <!-- ランキングの出力 -->
-      <th class="item-title"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></th>
+      <th class="item-title">
+        <div id="ranking">
+          <%= image_tag "ranking.png", size: "50x50", class: "red-star" %>
+          <span class="ranking-count"><%= @knowhow.likes_count %><%= t "dictionary.item.views" %></span>
+        </div>
+      </th>
     </tr>
   </table>
   <table class="item-right">
