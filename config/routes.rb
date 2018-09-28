@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # ■root
-# ★★★後で修正する！！★★★
-  root to: "users#show"
+  root to: "knowhows#index"
   # ■mypage
   get "/mypage", to: "users#show"
   # ■admin_page
@@ -20,21 +19,22 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  # ■knowhow
+  resources :knowhows
+
   # ■session
   get "/users/login", to: "sessions#new"
   post "/users/login", to: "sessions#create"
   delete "/users/:id/logout", as: "users_delete", to: "sessions#destroy"
+
   # ■category
   resources :categories, only: [:index, :create, :update, :destroy]
+
   # ■language
   resources :languages, only: [:index, :create, :update, :destroy]
 
 
 # ★★★後で修正する！！★★★
-  # # ■knowhow
-  # resources :meganes do
-  # end
-  
   # # ■like
   # resources :likes, only: [:index, :create, :destroy] do
   #   collection do

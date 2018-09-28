@@ -44,7 +44,7 @@ en:
     item:
     # 共通
       created_at: "Created At"
-      updated_at: "Modified At"
+      updated_at: "Updated At"
     # user
       login_id: "Login Id"
       user_name: "User Name"
@@ -54,8 +54,8 @@ en:
       admin: "Admin User"
       normal: "Normal User"
     # knowhow
-      class: "Class"
-      both_class: "KnowHow & Question"
+      knowhow_class: "Class"
+      both_knowhow_class: "KnowHow & Question"
       question: "Question"
       know_how: "KnowHow"
       category_name: "Category"
@@ -65,7 +65,7 @@ en:
       content: "Content"
       attachment: "File"
       create_user_name: "Create User"
-      modify_user_name: "Modify User"
+      update_user_name: "Update User"
       likes: "Likes"
     # comment
       comment: "Comment"

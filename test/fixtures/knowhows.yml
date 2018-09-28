@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  knowhow_class: false
+  category_id: 1
+  language_id: 1
+  title: MyString
+  key_message: MyString
+  content: MyText
+  attachment: MyString
+  create_user_id: 1
+  update_user_id: 1
+  likes_count: 1
+
+two:
+  knowhow_class: false
+  category_id: 1
+  language_id: 1
+  title: MyString
+  key_message: MyString
+  content: MyText
+  attachment: MyString
+  create_user_id: 1
+  update_user_id: 1
+  likes_count: 1

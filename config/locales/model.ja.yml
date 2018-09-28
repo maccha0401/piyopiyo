@@ -16,3 +16,14 @@ ja:
         name: "分類名称"
       language:
         name: "言語名称"
+      knowhow
+        knowhow_class: "区分"
+        category_id: "分類ID"
+        language_id: "言語ID"
+        title: "タイトル"
+        key_message: "検索キー"
+        content: "本文"
+        attachment: "添付ファイル"
+        create_user_id: "作成者ID"
+        update_user_id: "更新者ID"
+        likes_count: "お気に入り数"

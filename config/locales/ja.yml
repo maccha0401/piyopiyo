@@ -54,8 +54,8 @@ ja:
       admin: "管理者"
       normal: "一般ユーザ"
     # knowhow
-      class: "区分"
-      both_class: "ノウハウ＆質問"
+      knowhow_class: "区分"
+      both_knowhow_class: "ノウハウ＆質問"
       question: "質問"
       know_how: "ノウハウ"
       category_name: "分類"
@@ -65,7 +65,7 @@ ja:
       content: "本文"
       attachment: "添付ファイル"
       create_user_name: "作成者"
-      modify_user_name: "更新者"
+      update_user_name: "更新者"
       likes: "Likes"
     # comment
       comment: "コメント"
