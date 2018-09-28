@@ -7,6 +7,8 @@ en:
       edit_user: "Edit User"
       login_page: "Please Log In."
       new_knowhow: "New KnowHow"
+      knowhow_list: "KnowHow List"
+      knowhow_info: "KnowHow Info"
       edit_knowhow: "Update KnowHow"
       your_like_list: "Your Likes"
       ranking: "Ranking"
@@ -29,6 +31,7 @@ en:
       login: "Log In"
       add: "Add This Item"
       change_user_type: "Change User Type"
+      select_file: "File Name"
     # ヘッダー
       ranking: "Ranking"
       search: "Search"
@@ -57,7 +60,7 @@ en:
       knowhow_class: "Class"
       both_knowhow_class: "KnowHow & Question"
       question: "Question"
-      know_how: "KnowHow"
+      knowhow: "KnowHow"
       category_name: "Category"
       language_name: "Language"
       title: "title"
@@ -121,6 +124,15 @@ en:
       category_delete_failed: "Category Delete Failed!!"
       language_delete_failed: "Language Delete Failed!!"
       user_type_change_failed: "User Type Change Failed!!"
+    # 注意喚起メッセージ
+      select_required: "* Please Select."
+      input_required: "* Necessary."
+      input_not_required: "* Unnecessary."
+    # 削除されたユーザなど
+      none_user: "None User"
+      none_update: "Nnoe Update"
+      none_language: "None Setting"
+      delete_attachment: "Delete Attachment"
   time:
   # 追加
     am: AM

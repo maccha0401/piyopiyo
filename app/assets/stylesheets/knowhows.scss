@@ -1,3 +1,104 @@
-// Place all the styles related to the knowhows controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 共通事項
+.input-box {
+  vertical-align: top;
+}
+.output-box {
+  height: 3em;
+  padding-right: 5vw;
+}
+// 注意喚起メッセージ
+.attention {
+  padding-right: 2vw;
+  color: deeppink;
+  font-size: xx-small;
+}
+// ラジオボタン、チェックボックス
+.item-content input[type="radio"], .item-content input[type="checkbox"] {
+  display: none;
+}
+.item-content input[type="radio"] + label:hover, .item-content input[type="checkbox"] + label:hover
+{
+  color: lightgrey;
+  cursor: pointer;
+  cursor: hand;
+}
+.item-content input[type="radio"] + label, .item-content input[type="checkbox"] + label {
+  padding: 3px 13px;
+  color: darkgrey;
+}
+.item-content input[type="radio"]:checked + label, .item-content input[type="checkbox"]:checked + label {
+  padding: 3px 10px;
+  color: black;
+  border: solid 3px deeppink;
+  border-radius: 10px;
+}
+.radio-checkbox {
+  height: 4em;
+  font-size: xx-small;
+}
+// プルダウンメニュー
+.select-button select {
+  min-width: 120px;
+}
+// タイトル入力欄、検索キー入力欄
+.input-title input {
+  width: 50vw;
+  max-width: 500px;
+  height: 1.5em;
+}
+// 本文入力欄
+.input-content textarea {
+  margin-left: 3vw;
+  padding: 0;
+  width: 70vw;
+  height: 10em;
+}
+// 添付ファイル入力欄
+.input-attachment {
+  cursor: pointer;
+  cursor: hand;
+}
+// 区分、分類、言語出力欄
+.output-box .output-class {
+  margin: 2em 0.5em;
+  padding: 0.2em 0.5em;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 5px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+}
+// タイトル、検索キー出力欄
+.output-box .output-title {
+  position: relative;
+  margin: 2em 0.5em;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  background: #ffccff;
+  box-shadow: 0px 0px 0px 5px #ffccff;
+  border: dashed 2px white;
+}
+.output-box .output-title:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ff7fff #fff #ff7fff;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.output-box .output-title a:hover {
+  color: #ff00ff;
+}
+// 本文出力欄
+.output-content textarea {
+  margin-left: 3vw;
+  padding: 10px;
+  width: 70vw;
+  min-height: 10em;
+  max-height: 20em;
+  resize: none;
+  border: solid 3px deeppink;
+  border-radius: 10px;
+}

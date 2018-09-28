@@ -1,0 +1,90 @@
+<%= form_with(model: @knowhow, url: new_or_edit_knowhow_path, local: true) do |form| %>
+<!--■エラーの表示。-->
+  <% if @knowhow.errors.any? %>
+    <div class="errors">
+      <ul>
+        <% @knowhow.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--■ここから入力。-->
+  <div class="container">
+    <table>
+      <!-- 区分の入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.knowhow_class") %></th>
+        <td class="item-content radio-button"><%= form.radio_button :knowhow_class, false, {id: "radio1", checked: true} %>
+          <label for="radio1"><%= t "dictionary.item.knowhow" %></label></td>
+        <td class="item-content radio-button"><%= form.radio_button :knowhow_class, true, {id: "radio2"} %>
+          <label for="radio2"><%= t "dictionary.item.question" %></label></td>
+          <td class="attention"><%= t "dictionary.message.select_required" %></td>
+      </tr>
+    </table>
+    <table>
+      <tr class="item">
+        <!-- 分類の入力欄 -->
+        <th class="item-title"><%= form.label t("dictionary.item.category_name") %></th>
+        <td class="item-content input-box select-button"><%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %></td>
+        <td class="attention"><%= t "dictionary.message.input_required" %></td>
+        <!-- 言語の入力欄 -->
+        <th class="item-title"><%= form.label t("dictionary.item.language_name") %></th>
+        <td class="item-content input-box select-button"><%= form.collection_select :language_id, Language.all, :id, :name, include_blank: true %></td>
+        <td class="attention"><%= t "dictionary.message.input_not_required" %></td>
+      </tr>
+    </table>
+    <!-- ～line～ -->
+    <div class="line"></div>
+    <table>
+      <!-- タイトルの入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.title") %></th>
+        <td class="item-content input-box input-title"><%= form.text_field :title, required: true %></td>
+        <td class="attention"><%= t "dictionary.message.input_required" %></td>
+      </tr>
+      <!-- 検索キーの入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.key_message") %></th>
+        <td class="item-content input-box input-title"><%= form.text_field :key_message %></td>
+        <td class="attention"><%= t "dictionary.message.input_not_required" %></td>
+      </tr>
+    </table>
+    <!-- ～line～ -->
+    <div class="line"></div>
+    <table>
+      <!-- 本文の入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.content") %></th>
+      </tr>
+      <tr class="item">
+        <td class="item-content input-box input-content"><%= form.text_area :content, required: true %></td>
+      </tr>
+    </table>
+    <table>
+      <!-- 添付ファイルの入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.attachment") %></th>
+        <td class="item-content input-box input-attachment"><%= form.file_field :attachment, id: :attachment, value: @knowhow.attachment_cache %></td>
+
+<!-- ★★★後で修正する。 -->
+        <td><label for="attachment"><span type="button" class="input-attachment design-button"><%= t "dictionary.button.select_file" %></span>
+          <%= @knowhow.attachment.url if @knowhow.attachment.url %></label></td>
+      </tr>
+      <tr class="item">
+        <th class="item-title"></th>
+        <td class="item-content radio-checkbox"><%= form.check_box :remove_attachment, {id: "check1"} %>
+          <label for="check1"><%= t "dictionary.message.delete_attachment" %></label></td>
+      </tr>
+    </table>
+  </div>
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <!-- ボタン -->
+  <div class="container">
+    <div class="item">
+      <%= form.submit new_or_edit_button_knowhow_path, class: "design-submit" %>
+      <%= link_to t("dictionary.button.back"), :back, type: "button", class: "design-button" %>
+    </div>
+  </div>
+<% end %>

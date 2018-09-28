@@ -7,6 +7,8 @@ ja:
       edit_user: "ユーザ編集"
       login_page: "ログイン画面"
       new_knowhow: "新規ノウハウ登録"
+      knowhow_list: "ノウハウ一覧"
+      knowhow_info: "ノウハウ詳細"
       edit_knowhow: "ノウハウ編集"
       your_like_list: "お気に入り一覧"
       ranking: "人気ノウハウ"
@@ -29,6 +31,7 @@ ja:
       login: "ログイン"
       add: "追加する"
       change_user_type: "種別変更"
+      select_file: "ファイル選択"
     # ヘッダー
       ranking: "ランキング"
       search: "検索"
@@ -57,7 +60,7 @@ ja:
       knowhow_class: "区分"
       both_knowhow_class: "ノウハウ＆質問"
       question: "質問"
-      know_how: "ノウハウ"
+      knowhow: "ノウハウ"
       category_name: "分類"
       language_name: "言語"
       title: "タイトル"
@@ -121,6 +124,15 @@ ja:
       category_delete_failed: "分類を削除できませんでした。"
       language_delete_failed: "言語を削除できませんでした。"
       user_type_change_failed: "ユーザ種別を変更できませんでした。"
+    # 注意喚起メッセージ
+      select_required: "※選択してください。"
+      input_required: "※入力必須"
+      input_not_required: "※任意"
+    # 削除されたユーザなど
+      none_user: "削除済ユーザ"
+      none_update: "更新なし"
+      none_language: "設定なし"
+      delete_attachment: "添付ファイルを削除する。"
   activerecord:
     errors:
       messages:

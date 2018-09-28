@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # user_name は、24文字以内、全角を許可。
   validates :user_name, presence: true, uniqueness: true, length: { maximum: 24 }
   # user_type は、default はfalse（一般ユーザ）。更新はtoggle メソッドのみ許可するため、validates は新規作成時のみ。
-  validates :user_type, presence: true, default: false, inclusion: { in: [true, false] }, on: :new
+  validates :user_type, default: false, inclusion: { in: [true, false] }, on: :create
 
   # ■password
   # password は、4～12文字の英数字のみ許可。
@@ -14,7 +14,8 @@ class User < ApplicationRecord
 
   # ■association
   # user:knowhow = 1:多。ユーザの削除時、ノウハウは削除しない。
-  has_many :knowhows
+  has_many :knowhows, class_name: "Knowhow", foreign_key: :create_user_id, primary_key: :id
+  has_many :knowhows, class_name: "Knowhow", foreign_key: :update_user_id, primary_key: :id
 
   # ★★★後で修正！★★★
   # ■お気に入り

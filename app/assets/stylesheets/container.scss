@@ -5,3 +5,24 @@
 .container .item-content {
   padding-left: 1vw;
 }
+.container .item-content-knowhow {
+  padding-right: 1vw;
+}
+.container-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-parent .item-center {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.container-parent .item-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.container-parent .item-right {
+  display: flex;
+  justify-content: flex-end;
+}

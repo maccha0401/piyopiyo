@@ -1,0 +1,112 @@
+<h1><%= t "dictionary.title.knowhow_info" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container container-parent">
+  <table class="item-left">
+    <tr class="item">
+      <!-- お気に入りの出力 -->
+      <th class="item-title"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></th>
+    </tr>
+    <tr class="item">
+      <!-- ランキングの出力 -->
+      <th class="item-title"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></th>
+    </tr>
+  </table>
+  <table class="item-right">
+    <tr class="item">
+      <!-- 更新者の出力 -->
+      <th class="item-title"><%= t "dictionary.item.update_user_name" %></th>
+      <td class="item-content output-box"><%= put_knowhow_update_user_name(@knowhow) %></td>
+      <!-- 更新日時の出力 -->
+      <th class="item-title"><%= t "dictionary.item.updated_at" %></th>
+      <td class="item-content output-box"><%= put_knowhow_updated_at(@knowhow) %></td>
+    </tr>
+    <tr class="item">
+      <!-- 作成者の出力 -->
+      <th class="item-title"><%= t "dictionary.item.create_user_name" %></th>
+      <td class="item-content output-box"><%= put_knowhow_user_name(@knowhow.create_user) %></td>
+      <!-- 作成日時の出力 -->
+      <th class="item-title"><%= t "dictionary.item.created_at" %></th>
+      <td class="item-content output-box"><%= l(@knowhow.created_at, format: :default) %></td>
+    </tr>
+  </table>
+</div>
+<div class="container">
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <table>
+    <!-- 区分の出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.knowhow_class" %></th>
+      <td class="item-content output-box"><span class="output-class"><%= put_knowhow_class(@knowhow) %></span></td>
+    </tr>
+  </table>
+  <table>
+    <tr class="item">
+      <!-- 分類の出力 -->
+      <th class="item-title"><%= t "dictionary.item.category_name" %></th>
+      <td class="item-content output-box"><span class="output-class"><%= @knowhow.category.name %></span></td>
+      <!-- 言語の出力 -->
+      <th class="item-title"><%= t "dictionary.item.language_name" %></th>
+      <td class="item-content output-box"><span class="output-class"><%= put_knowhow_language_name(@knowhow) %></span></td>
+    </tr>
+  </table>
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <table>
+    <!-- タイトルの出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.title" %></th>
+      <td class="item-content output-box"><span class="output-title"><%= @knowhow.title %></span></td>
+    </tr>
+    <!-- 検索キーの出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.key_message" %></th>
+      <td class="item-content output-box"><span class="output-title"><%= @knowhow.key_message %></span></td>
+    </tr>
+  </table>
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <table>
+    <!-- 本文の出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.content" %></th>
+    </tr>
+    <tr class="item">
+      <td class="item-content output-content"><%= text_area :knowhow, :content, readonly: true %></td>
+    </tr>
+  </table>
+  <div class="container-parent">
+    <!-- 添付ファイルの出力 -->
+    <% if @knowhow.attachment.url %>
+      <!-- 画像の場合 -->
+      <% if ["png", "bmp", "jpg", "jpeg", "gif"].include?((@knowhow.attachment.url.split(".")[-1]).downcase) %>
+        <div class ="item-center">
+          <div class ="item">
+            <%= image_tag(@knowhow.attachment.url, size: "300x300") %>
+          </div>
+        </div>
+      <% else %>
+      <!-- 画像以外の場合 -->
+        <table>
+          <tr class="item">
+            <th class="item-title"><%= t "dictionary.item.attachment" %></th>
+            <td class="item-content  output-box"><span class="output-title">
+              <%= link_to @knowhow.attachment.url, @knowhow.attachment.url, target: "blank" %></span></td>
+          </tr>
+        </table>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <% if logged_in? %>
+    <%= link_to t("dictionary.button.edit"), edit_knowhow_path(@knowhow.id), type: "button", class: "design-button" %>
+    <% if admin? %>
+      <%= link_to t("dictionary.button.delete"), knowhow_path(@knowhow.id), method: :delete,type: "button", class: "design-button",
+        data:{confirm: t("dictionary.message.delete_knowhow")} %>
+    <% end %>
+  <% end %>
+</div>

@@ -16,7 +16,7 @@ ja:
         name: "分類名称"
       language:
         name: "言語名称"
-      knowhow
+      knowhow:
         knowhow_class: "区分"
         category_id: "分類ID"
         language_id: "言語ID"

@@ -1,30 +1,31 @@
-# def CreateUser(number)
-#   number = number.to_s
-#   User.create!(
-#     login_id: number,
-#     user_name: number,
-#     password: number,
-#     user_type: true
-#   )
-# end
-# # ■ユーザの作成
-# CreateUser(999999)
+# ■ユーザの作成
+def CreateUser(number)
+  number = number.to_s
+  User.create!(
+    login_id: number,
+    user_name: number,
+    password: number,
+    user_type: true
+  )
+end
+CreateUser(999999)
+CreateUser(222222)
 
-# def CreateCategory(string)
-#   Category.create!(
-#     name: string
-#   )
-# end
-# # ■分類の作成
-# CreateCategory("aiueo")
-# CreateCategory("kkkkk")
-# CreateCategory("oiuyt")
+# ■分類の作成
+def CreateCategory(string)
+  Category.create!(
+    name: string
+  )
+end
+CreateCategory("aiueo")
+CreateCategory("kkkkk")
+CreateCategory("oiuyt")
 
+# ■言語の作成
 def CreateLanguage(string)
   Language.create!(
     name: string
   )
 end
-# ■言語の作成
-CreateLanguage("123456")
-CreateLanguage("987654")
+CreateLanguage("C言語")
+CreateLanguage("shell script")
