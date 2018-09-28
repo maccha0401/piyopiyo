@@ -17,3 +17,6 @@
 /yarn-error.log
 
 .byebug_history
+
+# 添付ファイルは同期しない。
+/public/uploads
