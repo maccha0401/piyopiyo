@@ -1,0 +1,29 @@
+<h1><%= t "dictionary.user_info" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <table>
+    <!-- ログインIDの出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.login_id" %></th>
+      <td class="item-content"><%= @user.login_id %></td>
+    </tr>
+    <!-- ユーザ名の出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.user_name" %></th>
+      <td class="item-content"><%= @user.user_name %></td>
+    </tr>
+    <!-- ユーザ種別の出力 -->
+    <tr class="item">
+      <th class="item-title"><%= t "dictionary.item.user_type" %></th>
+      <td class="item-content"><%= put_user_type(@user) %></td>
+    </tr>
+  </table>
+</div>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <% if @user.id == current_user.id %>
+    <%= link_to t("dictionary.button.edit"), edit_users_path, type: "button", class: "design-button" %>
+  <% end %>
+</div>

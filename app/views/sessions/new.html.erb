@@ -1,0 +1,28 @@
+<!--■ページタイトル-->
+<h1><%= t "dictionary.title.login_page" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<!--■ログインのフォーム-->
+<%= form_with(scope: :session, url: users_login_path, local: true) do |form| %>
+  <div class="container">
+    <table>
+      <!-- ログインIDの出力 -->
+      <tr class="item">
+        <th class="item_title"><%= form.label t("dictionary.item.login_id") %></th>
+        <td class="item_content"><%= form.text_field :login_id, required: true %></td>
+      </tr>
+      <!-- パスワードの入力欄 -->
+      <tr class="item">
+        <th class="item_title"><%= form.label t("dictionary.item.password") %></th>
+        <td class="item_content"><%= form.password_field :password, required: true %></td>
+      </tr>
+    </table>
+  </div>
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <!-- ボタン -->
+  <div class="container">
+    <%= form.submit t("dictionary.button.login"), class: "design-submit" %>
+    <%= link_to t("dictionary.button.back"), :back, type: "button", class: "design-button" %>
+  </div>
+<% end %>

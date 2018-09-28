@@ -1,0 +1,50 @@
+class CategoriesController < ApplicationController
+  before_action :require_login
+  before_action :require_admin
+  before_action :set_params_category, only: [:create, :update]
+
+  def index
+    @categories = Category.all.order(name: :asc)
+    @category = Category.first
+    @new_category = Category.new
+  end
+
+  def create
+    if @category.save
+      flash[:notice] = t("dictionary.message.category_created")
+    else
+      flash[:notice] = t("dictionary.message.category_create_failed")
+    end
+    redirect_to categories_path
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:notice] = t("dictionary.message.category_updated")
+    else
+      flash[:danger] = t("dictionary.message.category_update_failed")
+    end
+    redirect_to categories_path
+  end
+
+  def destroy
+# ★★★後で修正する。★★★
+    if Category.find(params[:id]).destroy
+      flash[:danger] = t("dictionary.message.category_deleted")
+    else
+      flash[:danger] = t("dictionary.message.category_delete_failed")
+    end
+    redirect_to categories_path
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name)
+  end
+
+  def set_params_category
+    @category = Category.new(category_params)
+  end
+end

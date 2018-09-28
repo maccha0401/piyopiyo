@@ -1,0 +1,41 @@
+<!-- 管理者のみアクセス可能 -->
+<h1 class="admin-page-color"><%= t "dictionary.title.language_list" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <table>
+    <!-- タイトル行の出力 -->
+    <tr class="item-list">
+      <th class="item-title"><%= t "dictionary.item.language_name" %></th>
+    </tr>
+    <!-- 一覧の出力 -->
+    <% @languages.each do |language| %>
+      <tr class="item-list">
+        <td class="item-content"><%= language.name %></td>
+          <%= form_with(scope: :language, url: language_path(language.id), method: :patch, local: true,
+            data:{confirm: t("dictionary.message.update_language")}) do |form| %>
+            <td class="item-content"><%= form.text_field :name, value: nil, required: true %></td>
+            <td class="item-content"><%= form.submit t("dictionary.button.update"), class: "design-submit" %></td>
+          <% end %>
+        <td class="item-content"><%= link_to t("dictionary.button.delete"), 
+            language_path(language.id), method: "delete", data:{confirm: t("dictionary.message.delete_language")}, 
+            type: "button", class: "design-button" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<!-- ～line～ -->
+<div class="line"></div>
+<%= form_with(model: @new_language, url: languages_path, local: true) do |form| %>
+  <!--■ここから入力。-->
+  <div class="container">
+    <table>
+      <!-- 言語名称の入力欄 -->
+      <tr class="item">
+        <td class="item-content"><%= form.text_field :name, required: true %></td>
+        <!-- ボタン -->
+        <td class="item-content"><%= form.submit t("dictionary.button.add"), class: "design-submit" %></td>
+      </tr>
+    </table>
+  </div>
+<% end %>

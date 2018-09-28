@@ -1,0 +1,82 @@
+// ■ヘッダー
+.header {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-color: white;
+}
+.admin-color {
+  background-color: #ff9e9e;
+}
+.admin-text-color {
+  color: red;
+}
+.admin-page-color {
+  background-color: red;
+}
+.normal-color {
+  background-color: #b7b7ff;
+}
+.nologin-color {
+  background-color: grey;
+}
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.header-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// ■フッター
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.footer-middle {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer-middle .footer-item {
+  text-decoration: none;
+  color: white;
+}
+
+// ■本文
+.main-content {
+  margin: 60px 3vw 60px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+// ■flash
+.danger {
+  color: red;
+}
+.notice {
+  color: green;
+}

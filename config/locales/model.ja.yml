@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザ"
+      category: "分類"
+      language: "言語"
+      knowhow: "ノウハウ"
+    attributes:
+      user:
+        login_id: "ログインID"
+        user_name: "ユーザ名"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        user_type: "ユーザ種別"
+      category:
+        name: "分類名称"
+      language:
+        name: "言語名称"

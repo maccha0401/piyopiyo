@@ -1,0 +1,46 @@
+<%= form_with(model: @user, url: users_path, local: true) do |form| %>
+<!--■エラーの表示。-->
+  <% if @user.errors.any? %>
+    <div class="errors">
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--■ここから入力。-->
+  <div class="container">
+    <table>
+      <!-- ログインIDの入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.login_id") %></th>
+        <td class="item-content"><%= form.text_field :login_id, required: true %></td>
+      </tr>
+      <!-- ユーザ名の入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.user_name") %></th>
+        <td class="item-content"><%= form.text_field :user_name, required: true %></td>
+      </tr>
+      <!-- パスワードの入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.password") %></th>
+        <td class="item-content"><%= form.password_field :password, required: true %></td>
+      </tr>
+      <!-- パスワード確認の入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.password_confirmation") %></th>
+        <td class="item-content"><%= form.password_field :password_confirmation, required: true %></td>
+      </tr>
+    </table>
+  </div>
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <!-- ボタン -->
+  <div class="container">
+    <div class="item">
+      <%= form.submit t("dictionary.button.create_user"), class: "design-submit" %>
+      <%= link_to t("dictionary.button.back"), :back, type: "button", class: "design-button" %>
+    </div>
+  </div>
+<% end %>

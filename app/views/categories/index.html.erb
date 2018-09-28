@@ -1,0 +1,41 @@
+<!-- 管理者のみアクセス可能 -->
+<h1 class="admin-page-color"><%= t "dictionary.title.category_list" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <table>
+    <!-- タイトル行の出力 -->
+    <tr class="item-list">
+      <th class="item-title"><%= t "dictionary.item.category_name" %></th>
+    </tr>
+    <!-- 一覧の出力 -->
+    <% @categories.each do |category| %>
+      <tr class="item-list">
+        <td class="item-content"><%= category.name %></td>
+          <%= form_with(scope: :category, url: category_path(category.id), method: :patch, local: true,
+            data:{confirm: t("dictionary.message.update_category")}) do |form| %>
+            <td class="item-content"><%= form.text_field :name, value: nil, required: true %></td>
+            <td class="item-content"><%= form.submit t("dictionary.button.update"), class: "design-submit" %></td>
+          <% end %>
+        <td class="item-content"><%= link_to t("dictionary.button.delete"), 
+            category_path(category.id), method: "delete", data:{confirm: t("dictionary.message.delete_category")}, 
+            type: "button", class: "design-button" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<!-- ～line～ -->
+<div class="line"></div>
+<%= form_with(model: @new_category, url: categories_path, local: true) do |form| %>
+  <!--■ここから入力。-->
+  <div class="container">
+    <table>
+      <!-- 分類名称の入力欄 -->
+      <tr class="item">
+        <td class="item-content"><%= form.text_field :name, required: true %></td>
+        <!-- ボタン -->
+        <td class="item-content"><%= form.submit t("dictionary.button.add"), class: "design-submit" %></td>
+      </tr>
+    </table>
+  </div>
+<% end %>

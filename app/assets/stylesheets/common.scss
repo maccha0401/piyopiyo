@@ -1,0 +1,71 @@
+// リンクの設定
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: pink;
+}
+// h1 の微調整
+h1 {
+  margin: 0;
+}
+// list の点は表示しない
+ul {
+  list-style: none;
+}
+// line の調整
+.line {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-image: url(line.png);
+  background-repeat: repeat-x;
+  height: 10px;
+}
+// validation エラー時の表示方
+.errors {
+  color: red;
+}
+
+// ボタンのデザイン
+.design-button {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #f9a9ae;
+  width: auto;
+  height: 30px;
+  padding: 0 5px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: small;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);  
+}
+// submit ボタンのレイアウトを変更
+.design-submit {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #f9a9ae;
+  width: auto;
+  height: 30px;
+  padding: 0 5px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: small;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);  
+  cursor: pointer;
+  cursor: hand;
+}
+.design-submit:hover {
+  text-decoration: none;
+  color: pink;
+}

@@ -1,33 +1,131 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  dictionary:
+    # ■画面のタイトル
+    title:
+      new_user: "New User"
+      user_info: "User Info"
+      edit_user: "Edit User"
+      login_page: "Please Log In."
+      new_knowhow: "New KnowHow"
+      edit_knowhow: "Update KnowHow"
+      your_like_list: "Your Likes"
+      ranking: "Ranking"
+      admin_page: "Admin Page"
+      user_list: "User List"
+      category_list: "Category List"
+      language_list: "Language List"
+      comment_list: "Comment"
+      new_comment: "New Comment"
+    # ■ボタン
+    button:
+    # 共通
+      back: "Back"
+      create_user: "Create"
+      create_knowhow: "Create"
+      edit: "Edit"
+      update: "Update"
+      delete: "Delete"
+      comment: "Comment"
+      login: "Log In"
+      add: "Add This Item"
+      change_user_type: "Change User Type"
+    # ヘッダー
+      ranking: "Ranking"
+      search: "Search"
+      admin_page: "Admin"
+      like_page: "Likes"
+      user_page: "User"
+      logout: "LogOut"
+      new_user: "New User"
+      login_page: "LogIn"
+    # フッター
+      system_name: "KnowHow Management System"
+    # ■項目
+    item:
+    # 共通
+      created_at: "Created At"
+      updated_at: "Modified At"
+    # user
+      login_id: "Login Id"
+      user_name: "User Name"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      user_type: "User Type"
+      admin: "Admin User"
+      normal: "Normal User"
+    # knowhow
+      class: "Class"
+      both_class: "KnowHow & Question"
+      question: "Question"
+      know_how: "KnowHow"
+      category_name: "Category"
+      language_name: "Language"
+      title: "title"
+      key_message: "Key"
+      content: "Content"
+      attachment: "File"
+      create_user_name: "Create User"
+      modify_user_name: "Modify User"
+      likes: "Likes"
+    # comment
+      comment: "Comment"
+      comment_user_name: "Comment User"
+      comment_at: "Comment At"
+    # ■メッセージ
+    message:
+    # 確認メッセージ
+      create_category: "Add This Categroy?"
+      create_language: "Add This Language?"
+      update_category: "Update Category?"
+      update_language: "Update Language?"
+      delete_user: "Delete This User?"
+      delete_knowhow: "Delete This KnowHow?"
+      delete_comment: "Delete Your Comment?"
+      delete_category: "Delete This Category?"
+      delete_language: "Delete This Language?"
+      change_user_type: "Change This User Type?"
+    # 処理完了メッセージ
+      login_succeeded: "Log In."
+      logout_succeeded: "Log Out."
+      user_created: "User Created."
+      knowhow_created: "New KnowHow Come Into The World!!"
+      comment_created: "Commented."
+      like_created: "You Like This KnowHow!!"
+      category_created: "Category Added."
+      language_created: "Language Added."
+      user_updated: "User Updated."
+      knowhow_updated: "KnowHou Updated."
+      category_updated: "Category Updated."
+      language_updated: "Language Updated."
+      user_deleted: "User Deleted."
+      knowhow_deleted: "KnowHou Deleted."
+      comment_deleted: "Comment Deleted."
+      like_deleted: "This KnowHow MISS YOU..."
+      category_deleted: "Category Deleted."
+      language_deleted: "Language Deleted."
+      user_type_changed: "User Type Changed."
+    # 処理失敗メッセージ
+      login_failed: "Login Failed."
+      user_create_failed: "User Create Failed!!"
+      knowhow_create_failed: "KnowHow Create Failed!!"
+      comment_create_failed: "Comment Create Failed!!"
+      category_create_failed: "Category Create Failed!!"
+      language_create_failed: "Language Create Failed!!"
+      user_update_failed: "User Update Failed!!"
+      knowhow_update_failed: "KnowHow Update Failed!!"
+      category_update_failed: "Category Update Failed!!"
+      language_update_failed: "Language Update Failed!!"
+      user_delete_failed: "User Delete Failed!!"
+      knowhow_delete_failed: "KnowHow Delete Failed!!"
+      comment_delete_failed: "Comment Delete Failed!!"
+      category_delete_failed: "Category Delete Failed!!"
+      language_delete_failed: "Language Delete Failed!!"
+      user_type_change_failed: "User Type Change Failed!!"
+  time:
+  # 追加
+    am: AM
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: PM

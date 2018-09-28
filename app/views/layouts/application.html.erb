@@ -9,6 +9,85 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- ■ヘッダー -->
+    <header>
+      <!-- ログイン状態、ユーザ種別によって色を変える。 -->
+      <% if logged_in? %>
+        <% if admin? %>
+          <nav class="header admin-color">
+        <% else %>
+          <nav class="header normal-color">
+        <% end %>
+      <% else %>
+        <nav class="header nologin-color">
+      <% end %>
+        <div class="header-left">
+          <!-- ロゴ@共通（左側） -->
+          <%= link_to :root, class: "header-item" do %><%= image_tag "logo.png", size: "45x33" %><% end %>
+          <!-- ■ヘッダー@ログイン済 -->
+          <% if logged_in? %>
+            <!-- ラインキング（左側） -->
+            <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.ranking" %><% end %>
+            <!-- 検索（左側） -->
+            <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.search" %><% end %>
+          <% end %>
+        </div>
+        <div class="header-right">
+          <% if logged_in? %>
+            <!-- ヘッダー@管理者の場合、追加 -->
+            <% if admin? %>
+              <!-- 管理画面（右側） -->
+              <%= link_to :admin_page, class: "header-item" do %><%= t "dictionary.button.admin_page" %><% end %>
+            <% end %>
+            <!-- お気に入り画面（右側） -->
+            <%= link_to :root, class: "header-item" do %><%= t "dictionary.button.like_page" %><% end %>
+            <!-- ユーザ情報（右側） -->
+            <%= link_to users_path, class: "header-item" do %><%= t "dictionary.button.user_page" %><% end %>
+            <!-- ログアウト（右側） -->
+            <%= link_to users_delete_path(current_user.id), method: :delete, class: "header-item" do %><%= t "dictionary.button.logout" %><% end %>
+          <!-- ■ヘッダー@未ログイン -->
+          <% else %>
+            <!-- ユーザ登録（右側） -->
+            <%= link_to new_users_path, class: "header-item" do %><%= t "dictionary.button.new_user" %><% end %>
+            <!-- ログイン（右側） -->
+            <%= link_to users_login_path, class: "header-item" do %><%= t "dictionary.button.login_page" %><% end %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <div class="main-content">
+      <!-- ■flash の表示 -->
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key) %>
+      <% end %>
+      <!-- ■本文 の表示-->
+      <%= yield %>
+    </div>
+
+    <!-- ■フッター -->
+    <footer>
+      <!-- ログイン状態、ユーザ種別によって色を変える。 -->
+      <% if logged_in? %>
+        <% if admin? %>
+          <nav class="footer admin-color">
+        <% else %>
+          <nav class="footer normal-color">
+        <% end %>
+      <% else %>
+        <nav class="footer nologin-color">
+      <% end %>
+      <nav class="footer">
+        <div class="footer-left">
+          <!-- ホーム@共通（左側） -->
+          <%= link_to :root, class: "footer-item" do %><%= image_tag "home.png", size: "45x33" %><% end %>
+        </div>
+        <div class="footer-middle">
+          <!-- システム名@共通（中央） -->
+          <div class="footer-item"><%= image_tag "logo.png", size: "45x33" %><%= t "dictionary.button.system_name" %></div>
+        </div>
+        <div class="footer-right"></div>
+      </nav>
+    </footer>
   </body>
 </html>

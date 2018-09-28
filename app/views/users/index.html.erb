@@ -1,0 +1,39 @@
+<!-- 管理者のみアクセス可能 -->
+<h1 class="admin-page-color"><%= t "dictionary.title.user_list" %></h1>
+<!-- ～line～ -->
+<div class="line"></div>
+<div class="container">
+  <table>
+    <!-- タイトル行の出力 -->
+    <tr class="item-list">
+      <th class="item-title"><%= t "dictionary.item.login_id" %></th>
+      <th class="item-title"><%= t "dictionary.item.user_name" %></th>
+      <th class="item-title"><%= t "dictionary.item.user_type" %></th>
+      <th class="item-title"><%= t "dictionary.item.updated_at" %></th>
+      <th class="item-title"><%= t "dictionary.item.created_at" %></th>
+    </tr>
+    <!-- 一覧の出力 -->
+    <% @users.each do |user| %>
+      <!-- 管理者の場合、赤色で表示 -->
+      <% if user.user_type == true %>
+        <tr class="item-list admin-text-color">
+      <%else%>
+        <tr class="item-list">
+      <% end %>
+        <td class="item-content"><%= user.login_id %></td>
+        <td class="item-content"><%= user.user_name %></td>
+        <td class="item-content"><%= put_user_type(user) %></td>
+        <td class="item-content"><%= l(user.updated_at, format: :default) %></td>
+        <td class="item-content"><%= l(user.created_at, format: :default) %></td>
+        <% if user.id != current_user.id %>
+          <td class="item-content"><%= link_to t("dictionary.button.change_user_type"), 
+            change_user_type_path(user.id), method: "patch", data:{confirm: t("dictionary.message.change_user_type")}, 
+            type: "button", class: "design-button" %></td>
+          <td class="item-content"><%= link_to t("dictionary.button.delete"), 
+            users_destroy_path(user.id), method: "delete", data:{confirm: t("dictionary.message.delete_user")}, 
+            type: "button", class: "design-button" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
