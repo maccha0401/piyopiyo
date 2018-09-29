@@ -6,23 +6,24 @@ class KnowhowsController < ApplicationController
 
   def index
     if params[:index_type] == "likes"
-      @knowhows = current_user.like_knowhows.order(updated_at: :desc)
+      @knowhows = current_user.like_knowhows.order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.your_like_list"
     elsif params[:index_type] == "views"
-      @knowhows = Knowhow.all.order(views_count: :desc).order(updated_at: :desc)
+      @knowhows = Knowhow.all.order(views_count: :desc).order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.ranking"
     else
-      @knowhows = Knowhow.all.order(updated_at: :desc)
+      @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page]).per(1)
       @page_title = "dictionary.title.knowhow_list"
     end
-    # ★★★kaminar
-    # @meganes = Megane.order(updated_at: :desc).page(params[:page]).per(3)
-    # ★★★kaminar
   end
 
   def show
-    # 閲覧時にカウンターをアップする。
-    @knowhow.increment!(:views_count, @knowhow.id)
+    # 作成者or更新者でない場合、閲覧時にカウンターをアップする。
+    if logged_in?
+      if @knowhow.create_user_id != current_user.id && @knowhow.update_user_id != current_user.id
+        @knowhow.increment!(:views_count, 1)
+      end
+    end
   end
 
   def new

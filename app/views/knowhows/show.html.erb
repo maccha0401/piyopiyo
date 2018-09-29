@@ -6,7 +6,12 @@
     <tr class="item">
       <!-- お気に入りの出力 -->
       <th class="item-title">
-        <div id="star"><%= render partial: "likes/like", locals: {knowhow: @knowhow} %></div>
+        <% if logged_in? %>
+          <div id="star"><%= render partial: "likes/like", locals: {knowhow: @knowhow} %></div>
+        <% else %>
+          <%= image_tag "like.png", size: "45x45" %>
+          <span class="likes-count"><%= @knowhow.likes_count %><%= t "dictionary.item.likes" %></span>
+        <% end %>
       </th>
       <!-- ランキングの出力 -->
       <th class="item-title">

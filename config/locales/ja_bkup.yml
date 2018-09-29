@@ -1,0 +1,345 @@
+ja:
+  dictionary:
+    # ■画面のタイトル
+    title:
+      new_user: "ユーザ登録"
+      user_info: "ユーザ情報"
+      edit_user: "ユーザ編集"
+      login_page: "ログイン画面"
+      new_knowhow: "新規ノウハウ登録"
+      knowhow_list: "ノウハウ一覧"
+      knowhow_info: "ノウハウ詳細"
+      edit_knowhow: "ノウハウ編集"
+      your_like_list: "お気に入り一覧"
+      ranking: "人気ノウハウ"
+      admin_page: "管理者画面"
+      user_list: "ユーザ一覧"
+      category_list: "分類一覧"
+      language_list: "言語一覧"
+      comment_list: "コメント"
+      new_comment: "コメント入力"
+    # ■ボタン
+    button:
+    # 共通
+      back: "戻る"
+      create_user: "ユーザ登録"
+      create_knowhow: "新規作成"
+      edit: "編集する"
+      update: "更新する"
+      delete: "削除する"
+      comment: "コメントする"
+      login: "ログイン"
+      add: "追加する"
+      change_user_type: "種別変更"
+      select_file: "ファイル選択"
+    # ヘッダー
+      ranking: "ランキング"
+      search: "検索"
+      new_knowhow: "新規ノウハウ"
+      admin_page: "管理画面"
+      like_page: "お気に入り"
+      user_page: "ユーザ情報"
+      logout: "ログアウト"
+      new_user: "ユーザ登録"
+      login_page: "ログイン"
+    # フッター
+      system_name: "ノウハウ管理システム"
+    # ■項目
+    item:
+    # 共通
+      created_at: "作成日時"
+      updated_at: "更新日時"
+    # user
+      login_id: "ログインID"
+      user_name: "ユーザ名"
+      password: "パスワード"
+      password_confirmation: "パスワード確認"
+      user_type: "ユーザ種別"
+      admin: "管理者"
+      normal: "一般ユーザ"
+    # knowhow
+      knowhow_class: "区分"
+      both_knowhow_class: "ノウハウ＆質問"
+      question: "質問"
+      knowhow: "ノウハウ"
+      category_name: "分類"
+      language_name: "言語"
+      title: "タイトル"
+      key_message: "検索キー"
+      content: "本文"
+      attachment: "添付ファイル"
+      create_user_name: "作成者"
+      update_user_name: "更新者"
+      likes: "Likes"
+      views: "Views"
+    # comment
+      comment: "コメント"
+      comment_user_name: "投稿者"
+      comment_at: "投稿日時"
+    # ■メッセージ
+    message:
+    # 確認メッセージ
+      create_category: "分類を追加してよいですか？"
+      create_language: "言語を追加してよいですか？"
+      update_category: "分類を更新してよいですか？"
+      update_language: "言語を更新してよいですか？"
+      delete_user: "このユーザを削除してよいですか？本当によいですか？"
+      delete_knowhow: "このノウハウを削除してよいですか？本当によいですか？"
+      delete_comment: "コメントを削除してよいですか？"
+      delete_category: "分類を削除してよいですか？"
+      delete_language: "言語を削除してよいですか？"
+      change_user_type: "ユーザ種別を変更しますか？"
+    # 処理完了メッセージ
+      login_succeeded: "ログインしました。"
+      logout_succeeded: "ログアウトしました。"
+      user_created: "新しいユーザを登録しました。"
+      knowhow_created: "ノウハウを投稿してくれてありがとう！！"
+      comment_created: "コメントを投稿しました。"
+      like_created: "d(^^o"
+      category_created: "新しい分類を登録しました。"
+      language_created: "新しい言語を登録しました。"
+      user_updated: "ユーザ情報を更新しました。"
+      knowhow_updated: "ノウハウを最新化してくれてありがとう！！"
+      category_updated: "分類を更新しました。"
+      language_updated: "言語を更新しました。"
+      user_deleted: "ユーザを削除しました。"
+      knowhow_deleted: "貴重なノウハウが世の中から失われました(ToT)"
+      comment_deleted: "コメントを削除しました。"
+      like_deleted: "(T-T)"
+      category_deleted: "分類を削除しました。"
+      language_deleted: "言語を削除しました。"
+      user_type_changed: "ユーザ種別を変更しました。"
+    # 処理失敗メッセージ
+      login_failed: "ログインに失敗しました。"
+      user_create_failed: "ユーザを作成できませんでした。"
+      knowhow_create_failed: "ノウハウを作成できませんでした。"
+      comment_create_failed: "コメントを投稿できませんでした。"
+      category_create_failed: "分類を追加できませんでした。"
+      language_create_failed: "言語を追加できませんでした。"
+      user_update_failed: "ユーザ情報を更新できませんでした。"
+      knowhow_update_failed: "ノウハウを更新できませんでした。"
+      category_update_failed: "分類を更新できませんでした。"
+      language_update_failed: "言語を更新できませんでした。"
+      user_delete_failed: "ユーザを削除できませんでした。"
+      knowhow_delete_failed: "ノウハウを削除できませんでした。"
+      comment_delete_failed: "コメントを削除できませんでした。"
+      category_delete_failed: "分類を削除できませんでした。"
+      language_delete_failed: "言語を削除できませんでした。"
+      user_type_change_failed: "ユーザ種別を変更できませんでした。"
+    # 注意喚起メッセージ
+      select_required: "※選択してください。"
+      input_required: "※入力必須"
+      input_not_required: "※任意"
+    # 削除されたユーザなど
+      none_user: "削除済ユーザ"
+      none_update: "更新なし"
+      none_language: "設定なし"
+      delete_attachment: "添付ファイルを削除する。"
+      category_cannot_delete: "指定された分類に属するノウハウが存在するため、削除できません。"
+      language_cannot_delete: "指定された言語に属するノウハウが存在するため、削除できません。"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      present: は入力しないでください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: "バリデーションに失敗しました: %{errors}"
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+      other_than: は%{count}以外の値にしてください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+          pb: PB
+          eb: EB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: 、
+      two_words_connector: 、
+      words_connector: 、
+  time:
+    am: 午前
+    formats:
+    # 変更した。
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: 午後

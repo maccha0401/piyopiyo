@@ -6,9 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 # ■追加
-gem "bcrypt"       #=> session 管理用のgem。
-gem "carrierwave"  #=> 画像アップローダ用のgem。
-gem "mini_magick"  #=> 画像サイズ調整用のgem。
+gem "bcrypt"             #=> session 管理用のgem
+gem "carrierwave"        #=> 画像アップローダ用のgem
+gem "mini_magick"        #=> 画像サイズ調整用のgem
+gem "kaminari"           #=> ページネーション用のgem
+gem "kaminari-bootstrap" #=> ページネーション用のgem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
