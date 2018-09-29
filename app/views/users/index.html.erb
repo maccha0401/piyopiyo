@@ -26,12 +26,18 @@
         <td class="item-content"><%= l(user.updated_at, format: :default) %></td>
         <td class="item-content"><%= l(user.created_at, format: :default) %></td>
         <% if user.id != current_user.id %>
-          <td class="item-content"><%= link_to t("dictionary.button.change_user_type"), 
-            change_user_type_path(user.id), method: "patch", data:{confirm: t("dictionary.message.change_user_type")}, 
-            type: "button", class: "design-button" %></td>
-          <td class="item-content"><%= link_to t("dictionary.button.delete"), 
-            users_destroy_path(user.id), method: "delete", data:{confirm: t("dictionary.message.delete_user")}, 
-            type: "button", class: "design-button" %></td>
+          <td class="item-content">
+            <%= link_to t("dictionary.button.change_user_type"), 
+              change_user_type_path(user.id), method: "patch",
+              data:{confirm: t("dictionary.message.change_user_type")}, 
+              type: "button", class: "design-button" %>
+          </td>
+          <td class="item-content">
+            <%= link_to t("dictionary.button.delete"), 
+              users_destroy_path(user.id), method: "delete",
+              data:{confirm: t("dictionary.message.delete_user")}, 
+              type: "button", class: "design-button" %>
+            </td>
         <% end %>
       </tr>
     <% end %>

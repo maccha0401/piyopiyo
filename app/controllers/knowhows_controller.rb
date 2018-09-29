@@ -6,10 +6,12 @@ class KnowhowsController < ApplicationController
 
   def index
     if params[:index_type] == "likes"
-      @knowhows = current_user.like_knowhows.order(updated_at: :desc).page(params[:page])
+      @knowhows = current_user.like_knowhows
+                    .order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.your_like_list"
     elsif params[:index_type] == "views"
-      @knowhows = Knowhow.all.order(views_count: :desc).order(updated_at: :desc).page(params[:page])
+      @knowhows = Knowhow.all.order(views_count: :desc)
+                    .order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.ranking"
     else
       @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page])
@@ -67,7 +69,9 @@ class KnowhowsController < ApplicationController
   private
 
   def knowhow_params
-    params.require(:knowhow).permit(:knowhow_class, :category_id, :language_id, :title, :key_message, :content, :attachment, :attachment_cache, :remove_attachment)
+    params.require(:knowhow).permit(:knowhow_class, :category_id, :language_id,
+                                    :title, :key_message, :content, :attachment,
+                                    :attachment_cache, :remove_attachment)
   end
 
   def set_knowhow

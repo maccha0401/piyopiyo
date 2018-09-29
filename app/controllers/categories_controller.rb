@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
     else
       flash[:notice] = t("dictionary.message.category_create_failed")
     end
+
     redirect_to categories_path
   end
 
@@ -25,6 +26,7 @@ class CategoriesController < ApplicationController
     else
       flash[:danger] = t("dictionary.message.category_update_failed")
     end
+
     redirect_to categories_path
   end
 
@@ -39,6 +41,7 @@ class CategoriesController < ApplicationController
         flash[:danger] = t("dictionary.message.category_delete_failed")
       end
     end
+
     redirect_to categories_path
   end
 

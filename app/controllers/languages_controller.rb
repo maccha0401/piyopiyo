@@ -15,6 +15,7 @@ class LanguagesController < ApplicationController
     else
       flash[:notice] = t("dictionary.message.language_create_failed")
     end
+
     redirect_to languages_path
   end
 
@@ -25,6 +26,7 @@ class LanguagesController < ApplicationController
     else
       flash[:danger] = t("dictionary.message.language_update_failed")
     end
+
     redirect_to languages_path
   end
 
@@ -39,6 +41,7 @@ class LanguagesController < ApplicationController
         flash[:danger] = t("dictionary.message.language_delete_failed")
       end
     end
+
     redirect_to languages_path
   end
 

@@ -18,6 +18,7 @@ module SessionsHelper
   def require_login
     if !logged_in?
       session[:previous_url] = request.fullpath
+
       redirect_to users_login_path
     end
   end

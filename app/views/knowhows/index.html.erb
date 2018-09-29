@@ -1,6 +1,7 @@
 <h1><%= t @page_title %></h1>
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <table>
     <!-- タイトル行の出力 -->
@@ -19,22 +20,46 @@
     <!-- 一覧の出力 -->
     <% @knowhows.each do |knowhow| %>
       <tr class="item-list">
-        <td class="item-content-knowhow"><%= knowhow.likes_count %><%= t "dictionary.item.likes" %></td>
-        <td class="item-content-knowhow"><%= knowhow.views_count %><%= t "dictionary.item.views" %></td>
-        <td class="item-content-knowhow"><%= put_knowhow_class(knowhow) %></td>
-        <td class="item-content-knowhow"><%= link_to knowhow.title, knowhow_path(knowhow.id)  %></td>
-        <td class="item-content-knowhow"><%= knowhow.category.name %></td>
-        <td class="item-content-knowhow"><%= put_knowhow_language_name(knowhow) %></td>
+        <td class="item-content-knowhow">
+          <%= knowhow.likes_count %><%= t "dictionary.item.likes" %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= knowhow.views_count %><%= t "dictionary.item.views" %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= put_knowhow_class(knowhow) %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= link_to knowhow.title, knowhow_path(knowhow.id)  %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= knowhow.category.name %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= put_knowhow_language_name(knowhow) %>
+        </td>
         <!-- 更新日時と作成日時が同じ場合、更新なし。 -->
         <% if knowhow.updated_at == knowhow.created_at %>
-          <td class="item-content-knowhow"><%= t "dictionary.message.none_update" %></td>
-          <td class="item-content-knowhow"><%= t "dictionary.message.none_update" %></td>
+          <td class="item-content-knowhow">
+            <%= t "dictionary.message.none_update" %>
+          </td>
+          <td class="item-content-knowhow">
+            <%= t "dictionary.message.none_update" %>
+          </td>
         <% else %>
-          <td class="item-content-knowhow"><%= put_knowhow_user_name(knowhow.update_user) %></td>
-          <td class="item-content-knowhow"><%= l(knowhow.updated_at, format: :default) %></td>
+          <td class="item-content-knowhow">
+            <%= put_knowhow_user_name(knowhow.update_user) %>
+          </td>
+          <td class="item-content-knowhow">
+            <%= l(knowhow.updated_at, format: :default) %>
+          </td>
         <% end %>
-        <td class="item-content-knowhow"><%= put_knowhow_user_name(knowhow.create_user) %></td>
-        <td class="item-content-knowhow"><%= l(knowhow.created_at, format: :default) %></td>
+        <td class="item-content-knowhow">
+          <%= put_knowhow_user_name(knowhow.create_user) %>
+        </td>
+        <td class="item-content-knowhow">
+          <%= l(knowhow.created_at, format: :default) %>
+        </td>
       </tr>
     <% end %>
   </table>

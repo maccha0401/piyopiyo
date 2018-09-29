@@ -8,13 +8,21 @@
     <table>
       <!-- ログインIDの出力 -->
       <tr class="item">
-        <th class="item_title"><%= form.label t("dictionary.item.login_id") %></th>
-        <td class="item_content"><%= form.text_field :login_id, required: true %></td>
+        <th class="item_title">
+          <%= form.label t("dictionary.item.login_id") %>
+        </th>
+        <td class="item_content">
+          <%= form.text_field :login_id, required: true %>
+        </td>
       </tr>
       <!-- パスワードの入力欄 -->
       <tr class="item">
-        <th class="item_title"><%= form.label t("dictionary.item.password") %></th>
-        <td class="item_content"><%= form.password_field :password, required: true %></td>
+        <th class="item_title">
+          <%= form.label t("dictionary.item.password") %>
+        </th>
+        <td class="item_content">
+          <%= form.password_field :password, required: true %>
+        </td>
       </tr>
     </table>
   </div>
@@ -23,6 +31,7 @@
   <!-- ボタン -->
   <div class="container">
     <%= form.submit t("dictionary.button.login"), class: "design-submit" %>
-    <%= link_to t("dictionary.button.back"), :back, type: "button", class: "design-button" %>
+    <%= link_to t("dictionary.button.back"), :back, type: "button",
+      class: "design-button" %>
   </div>
 <% end %>

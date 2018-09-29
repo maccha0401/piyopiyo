@@ -1,6 +1,7 @@
 <h1><%= t "dictionary.user_info" %></h1>
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <table>
     <!-- ログインIDの出力 -->
@@ -20,10 +21,13 @@
     </tr>
   </table>
 </div>
+
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <% if @user.id == current_user.id %>
-    <%= link_to t("dictionary.button.edit"), edit_users_path, type: "button", class: "design-button" %>
+    <%= link_to t("dictionary.button.edit"), edit_users_path, type: "button",
+      class: "design-button" %>
   <% end %>
 </div>

@@ -4,6 +4,6 @@ class Language < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 24 }
 
   # ■association
-  # language:knowhow = 1:多。言語を削除する際、ノウハウは削除しない（コントローラに実装）。
+  # language:knowhow = 1:多。言語削除時、ノウハウは削除しない（コントローラに実装）。
   has_many :knowhows
 end

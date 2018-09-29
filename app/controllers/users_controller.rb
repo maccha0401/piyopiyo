@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :not_require_login, only: [:new, :create]
   before_action :require_login, except: [:new, :create]
-  before_action :require_admin, only: [:index, :destroy, :chage_user_type, :admin_page]
+  before_action :require_admin, only: [:index, :destroy, :chage_user_type,
+                                       :admin_page]
   before_action :set_current_user, only: [:show, :edit, :update]
   before_action :set_params_user, only: [:create]
 
@@ -18,9 +19,11 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = t("dictionary.message.user_created")
+
       redirect_to :mypage
     else
       flash[:danger] = t("dictionary.message.user_create_failed")
+
       render new_users_path
     end
   end
@@ -28,9 +31,11 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = t("dictionary.message.user_updated")
+
       redirect_to :mypage
     else
       flash[:danger] = t("dictionary.message.user_update_failed")
+
       render edit_users_path
     end
   end
@@ -45,6 +50,7 @@ class UsersController < ApplicationController
         flash[:danger] = t("dictionary.message.user_delete_failed")
       end
     end
+
     redirect_to users_index_path
   end
 
@@ -55,13 +61,15 @@ class UsersController < ApplicationController
       User.find(params[:id]).toggle!(:user_type)
       flash[:notice] = t("dictionary.message.user_type_changed")
     end
+
     redirect_to users_index_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:login_id, :user_name, :password, :password_confirmation)
+    params.require(:user).permit(:login_id, :user_name,
+                                 :password, :password_confirmation)
   end
 
   def set_current_user

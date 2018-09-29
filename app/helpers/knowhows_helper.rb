@@ -1,29 +1,17 @@
 module KnowhowsHelper
   # 区分に従って、ノウハウ or 質問 の印字方を返す関数
   def put_knowhow_class(knowhow)
-    if knowhow.knowhow_class == true
-      t "dictionary.item.question"
-    else
-      t "dictionary.item.knowhow"
-    end
+    knowhow.knowhow_class ? t("dictionary.item.question") : t("dictionary.item.knowhow")
   end
 
   # 言語の設定がない場合、設定なしと返す関数
   def put_knowhow_language_name(knowhow)
-    if knowhow.language.nil?
-      t "dictionary.message.none_language"
-    else
-      knowhow.language.name
-    end
+    knowhow.language.nil? ? t("dictionary.message.none_language") : knowhow.language.name
   end
 
   # ノウハウに関するユーザが削除されている場合、削除済と返す関数
   def put_knowhow_user_name(knowhow_user)
-    if knowhow_user.present?
-      knowhow_user.user_name
-    else
-      t "dictionary.message.none_user"
-    end
+    knowhow_user.present? ? knowhow_user.user_name : t("dictionary.message.none_user")
   end
 
   # ノウハウの更新日時と作成日時が同じ場合、更新なしと返す関数
@@ -31,7 +19,7 @@ module KnowhowsHelper
     if knowhow.updated_at == knowhow.created_at
       t "dictionary.message.none_update"
     else
-      l(knowhow.updated_at, format: :default)
+      l knowhow.updated_at, format: :default
     end
   end
 

@@ -2,19 +2,38 @@
 <h1 class="admin-page-color"><%= t "dictionary.title.admin_page" %></h1>
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <table>
     <!-- ユーザ一覧へのリンク -->
     <tr class="item">
-      <td class="item-content"><h3><%= link_to users_index_path do %><%= t "dictionary.title.user_list" %><% end %></h3></td>
+      <td class="item-content">
+        <h3>
+          <%= link_to users_index_path do %>
+            <%= t "dictionary.title.user_list" %>
+          <% end %>
+        </h3>
+      </td>
     </tr>
     <!-- 分類の一覧へのリンク -->
     <tr class="item">
-      <td class="item-content"><h3><%= link_to categories_path do %><%= t "dictionary.title.category_list" %><% end %></h3></td>
+      <td class="item-content">
+        <h3>
+          <%= link_to categories_path do %>
+            <%= t "dictionary.title.category_list" %>
+          <% end %>
+        </h3>
+      </td>
     </tr>
     <!-- 言語の一覧へのリンク -->
     <tr class="item">
-      <td class="item-content"><h3><%= link_to languages_path do %><%= t "dictionary.title.language_list" %><% end %></h3></td>
+      <td class="item-content">
+        <h3>
+          <%= link_to languages_path do %>
+            <%= t "dictionary.title.language_list" %>
+          <% end %>
+        </h3>
+      </td>
     </tr>
   </table>
 </div>
