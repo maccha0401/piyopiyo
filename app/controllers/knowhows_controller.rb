@@ -12,7 +12,7 @@ class KnowhowsController < ApplicationController
       @knowhows = Knowhow.all.order(views_count: :desc).order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.ranking"
     else
-      @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page]).per(1)
+      @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.knowhow_list"
     end
   end
