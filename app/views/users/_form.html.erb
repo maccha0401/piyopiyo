@@ -17,17 +17,23 @@
       <tr class="item">
         <th class="item-title"><%= form.label t("dictionary.item.login_id") %></th>
         <td class="item-content"><%= form.text_field :login_id, required: true %></td>
+        <td class="attention"><%= t "dictionary.message.rule_of_user_id" %></td>
       </tr>
+
       <!-- ユーザ名の入力欄 -->
       <tr class="item">
         <th class="item-title"><%= form.label t("dictionary.item.user_name") %></th>
         <td class="item-content"><%= form.text_field :user_name, required: true %></td>
+        <td class="attention"><%= t "dictionary.message.rule_of_user_name" %></td>
       </tr>
+
       <!-- パスワードの入力欄 -->
       <tr class="item">
         <th class="item-title"><%= form.label t("dictionary.item.password") %></th>
         <td class="item-content"><%= form.password_field :password, required: true %></td>
+        <td class="attention"><%= t "dictionary.message.rule_of_password" %></td>
       </tr>
+
       <!-- パスワード確認の入力欄 -->
       <tr class="item">
         <th class="item-title"><%= form.label t("dictionary.item.password_confirmation") %></th>

@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def destroy
     # ■ログアウト
     session.delete(:user_id)
-    flash[:notice] = t("dictionary.message.logout_succeeded")
+    flash.now[:notice] = t("dictionary.message.logout_succeeded")
 
     redirect_to :root
   end

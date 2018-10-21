@@ -1,7 +1,9 @@
 <!-- 管理者のみアクセス可能 -->
 <h1 class="admin-page-color"><%= t "dictionary.title.user_list" %></h1>
+
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <table>
     <!-- タイトル行の出力 -->
@@ -12,6 +14,7 @@
       <th class="item-title"><%= t "dictionary.item.updated_at" %></th>
       <th class="item-title"><%= t "dictionary.item.created_at" %></th>
     </tr>
+
     <!-- 一覧の出力 -->
     <% @users.each do |user| %>
       <!-- 管理者の場合、赤色で表示 -->

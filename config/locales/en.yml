@@ -133,6 +133,9 @@ en:
       no_search_result: "No Knowhow."
       many_search_result: "%{count} knowhows."
     # 注意喚起メッセージ
+      rule_of_user_id: "JUST 6 letters."
+      rule_of_user_name: "Up to 24 letters."
+      rule_of_password: "Within 4 to 12 letters."
       select_required: "* Please Select."
       input_required: "* Necessary."
       input_not_required: "* Unnecessary."

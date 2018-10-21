@@ -11,9 +11,9 @@ class CategoriesController < ApplicationController
 
   def create
     if @category.save
-      flash[:notice] = t("dictionary.message.category_created")
+      flash.now[:notice] = t("dictionary.message.category_created")
     else
-      flash[:notice] = t("dictionary.message.category_create_failed")
+      flash.now[:notice] = t("dictionary.message.category_create_failed")
     end
 
     redirect_to categories_path
@@ -22,9 +22,9 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:notice] = t("dictionary.message.category_updated")
+      flash.now[:notice] = t("dictionary.message.category_updated")
     else
-      flash[:danger] = t("dictionary.message.category_update_failed")
+      flash.now[:danger] = t("dictionary.message.category_update_failed")
     end
 
     redirect_to categories_path
@@ -33,12 +33,12 @@ class CategoriesController < ApplicationController
   def destroy
     # 指定された分類に属するノウハウが存在する場合、削除しない。
     if Knowhow.find_by(category_id: params[:id])
-      flash[:danger] = t("dictionary.message.category_cannot_delete")
+      flash.now[:danger] = t("dictionary.message.category_cannot_delete")
     else
       if Category.find(params[:id]).destroy
-        flash[:notice] = t("dictionary.message.category_deleted")
+        flash.now[:notice] = t("dictionary.message.category_deleted")
       else
-        flash[:danger] = t("dictionary.message.category_delete_failed")
+        flash.now[:danger] = t("dictionary.message.category_delete_failed")
       end
     end
 

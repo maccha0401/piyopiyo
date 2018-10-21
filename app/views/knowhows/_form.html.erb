@@ -1,4 +1,5 @@
 <%= form_with(model: @knowhow, url: new_or_edit_knowhow_path, local: true) do |form| %>
+
 <!--■エラーの表示。-->
   <% if @knowhow.errors.any? %>
     <div class="errors">
@@ -9,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <!--■ここから入力。-->
   <div class="container">
     <table>
@@ -28,6 +30,7 @@
         <td class="attention"><%= t "dictionary.message.select_required" %></td>
       </tr>
     </table>
+
     <table>
       <tr class="item">
         <!-- 分類の入力欄 -->
@@ -39,6 +42,7 @@
                                      include_blank: true %>
         </td>
         <td class="attention"><%= t "dictionary.message.input_required" %></td>
+
         <!-- 言語の入力欄 -->
         <th class="item-title"><%= form.label t("dictionary.item.language_name") %></th>
         <td class="item-content input-box select-button">
@@ -48,8 +52,10 @@
         <td class="attention"><%= t "dictionary.message.input_not_required" %></td>
       </tr>
     </table>
+
     <!-- ～line～ -->
     <div class="line"></div>
+
     <table>
       <!-- タイトルの入力欄 -->
       <tr class="item">
@@ -59,6 +65,7 @@
         </td>
         <td class="attention"><%= t "dictionary.message.input_required" %></td>
       </tr>
+
       <!-- 検索キーの入力欄 -->
       <tr class="item">
         <th class="item-title">
@@ -72,8 +79,10 @@
         </td>
       </tr>
     </table>
+
     <!-- ～line～ -->
     <div class="line"></div>
+
     <table>
       <!-- 本文の入力欄 -->
       <tr class="item">
@@ -87,6 +96,7 @@
         </td>
       </tr>
     </table>
+
     <table>
       <!-- 添付ファイルの入力欄 -->
       <tr class="item">
@@ -107,8 +117,10 @@
       </tr>
     </table>
   </div>
+
   <!-- ～line～ -->
   <div class="line"></div>
+
   <!-- ボタン -->
   <div class="container">
     <div class="item">

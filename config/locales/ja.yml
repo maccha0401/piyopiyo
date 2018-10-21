@@ -133,6 +133,9 @@ ja:
       no_search_result: "ノウハウが見付かりませんでした。"
       many_search_result: "%{count}件のノウハウが見付かりました。"
     # 注意喚起メッセージ
+      rule_of_user_id: "※6文字ちょうどの英数字"
+      rule_of_user_name: "※全角含む24文字以内"
+      rule_of_password: "※4～12文字の英数字"
       select_required: "※選択してください。"
       input_required: "※入力必須"
       input_not_required: "※任意"

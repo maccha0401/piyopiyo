@@ -93,10 +93,10 @@ class KnowhowsController < ApplicationController
     # 作成者は、current_user。
     @knowhow.create_user_id = current_user.id
     if @knowhow.save
-      flash[:notice] = t("dictionary.message.knowhow_created")
+      flash.now[:notice] = t("dictionary.message.knowhow_created")
       redirect_to knowhow_path(@knowhow.id)
     else
-      flash[:danger] = t("dictionary.message.knowhow_create_failed")
+      flash.now[:danger] = t("dictionary.message.knowhow_create_failed")
       render new_knowhow_path
     end
   end
@@ -105,20 +105,20 @@ class KnowhowsController < ApplicationController
     # 作成者は、current_user。
     @knowhow.update_user_id = current_user.id
     if @knowhow.update(knowhow_params)
-      flash[:notice] = t("dictionary.message.knowhow_updated")
+      flash.now[:notice] = t("dictionary.message.knowhow_updated")
       redirect_to knowhow_path(@knowhow.id)
     else
-      flash[:danger] = t("dictionary.message.knowhow_update_failed")
+      flash.now[:danger] = t("dictionary.message.knowhow_update_failed")
       render edit_knowhows_path(@knowhow.id)
     end
   end
 
   def destroy
     if @knowhow.destroy
-      flash[:notice] = t("dictionary.message.knowhow_deleted")
+      flash.now[:notice] = t("dictionary.message.knowhow_deleted")
       redirect_to :root
     else
-      flash[:danger] = t("dictionary.message.knowhow_delete_failed")
+      flash.now[:danger] = t("dictionary.message.knowhow_delete_failed")
       render edit_knowhows_path(@knowhow.id)
     end
   end

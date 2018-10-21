@@ -1,4 +1,5 @@
 <h1><%= t "dictionary.title.knowhow_info" %></h1>
+
 <!-- ～line～ -->
 <div class="line"></div>
 
@@ -116,8 +117,10 @@
       </td>
     </tr>
   </table>
+
   <!-- ～line～ -->
   <div class="line"></div>
+
   <table>
     <!-- 本文の出力 -->
     <tr class="item">
@@ -129,6 +132,7 @@
       </td>
     </tr>
   </table>
+
   <div class="container-parent">
     <!-- 添付ファイルの出力 -->
     <% if @knowhow.attachment.url %>
@@ -159,6 +163,7 @@
 
 <!-- ～line～ -->
 <div class="line"></div>
+
 <div class="container">
   <% if logged_in? %>
     <%= link_to t("dictionary.button.edit"), edit_knowhow_path(@knowhow.id),
