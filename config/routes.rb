@@ -12,17 +12,12 @@ Rails.application.routes.draw do
   delete "/users/:id/destroy", as: "users_destroy", to: "users#destroy"
   patch "/users/:id/change_user_type", as: "change_user_type", to: "users#change_user_type"
   put "/users/:id/change_user_type", to: "users#change_user_type"
-# ★★★後で修正する！！★★★
-  # resource :users do
-  #   collection do
-  #     post :confirm
-  #   end
-  # end
 
   # ■knowhow
   resources :knowhows do
     collection do
       get :search
+      post :search, to: "knowhows#index"
     end
   end
 

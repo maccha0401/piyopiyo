@@ -1,4 +1,7 @@
 class Knowhow < ApplicationRecord
+  # ■検索用
+  include SearchCop
+
   # ■validation
   # knowhow_class は、default はfalse（ノウハウ）。
   validates :knowhow_class, default: false, inclusion: { in: [true, false] }
@@ -42,4 +45,10 @@ class Knowhow < ApplicationRecord
 
   # ■お気に入り
   has_many :likes, dependent: :destroy
+
+  # ■検索用
+  search_scope :search do
+    attributes :knowhow_class, :category_id, :language_id, :title,
+               :key_message, :content, :create_user_id, :update_user_id
+  end
 end

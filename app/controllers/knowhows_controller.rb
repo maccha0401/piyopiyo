@@ -13,10 +13,63 @@ class KnowhowsController < ApplicationController
       @knowhows = Knowhow.all.order(views_count: :desc)
                     .order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.ranking"
-    elsif params[:index_type] == "search"
-      # @knowhows = Knowhow.all.order(views_count: :desc)
-      #               .order(updated_at: :desc).page(params[:page])
-      # @page_title = "dictionary.title.search_result"
+    elsif (params[:knowhow][:index_type] == "search" unless params[:knowhow].nil?)
+      set_search_params
+      # and検索
+      if params[:knowhow][:search_type] == "true"
+        @command = "Knowhow.search(and: ["
+        if params[:knowhow][:knowhow_class].blank?
+          @command = @command + "{or: [{knowhow_class: true}, {knowhow_class: false}]}"
+        else
+          @command = @command + "{knowhow_class: params[:knowhow][:knowhow_class]}"
+        end
+        make_command_one("category_id")
+        make_command_one("language_id")
+        make_command_one("key_message")
+        make_command_two("user_id", "create_user_id", "update_user_id")
+        make_command_two("whole", "title", "content")
+        @command = @command + "]).order(updated_at: :desc)"
+      # or検索
+      else
+        # or検索、かつ検索アイテム入力なし
+        if params[:knowhow][:category_id].blank? and params[:knowhow][:language_id].blank? and params[:knowhow][:key_message].blank? and params[:knowhow][:user_id].blank? and params[:knowhow][:whole].blank?
+          @command = "Knowhow.search("
+          if params[:knowhow][:knowhow_class].blank?
+            @command = @command + "{or: [{knowhow_class: true}, {knowhow_class: false}]}"
+          else
+            @command = @command + "{knowhow_class: params[:knowhow][:knowhow_class]}"
+          end
+          @command = @command + ").order(updated_at: :desc)"
+        # or検索、かつ検索アイテム入力あり
+        else
+          @command = "Knowhow.search("
+          @command = @command + "{knowhow_class: params[:knowhow][:knowhow_class]}, {or: [" if !params[:knowhow][:knowhow_class].blank?
+          @command = @command + "or: ["
+
+          @command = "Knowhow.search(and: ["
+          if params[:knowhow][:knowhow_class].blank?
+            @command = @command + "{or: [{knowhow_class: true}, {knowhow_class: false}]}, {or: ["
+          else
+            @command = @command + "{knowhow_class: params[:knowhow][:knowhow_class]}, {or: ["
+          end
+          make_command_one("category_id")
+          make_command_one("language_id")
+          make_command_one("key_message")
+          make_command_two("user_id", "create_user_id", "update_user_id")
+          make_command_two("whole", "title", "content")
+          @command = @command.sub!("{or: [, ", "{or: [") + "]}]).order(updated_at: :desc)"
+        end
+      end
+      @knowhows = eval @command
+      @page_title = "dictionary.title.search_result"
+
+      if @knowhows.count.zero?
+        flash.now[:notice] = t("dictionary.message.no_search_result")
+      else
+        flash.now[:notice] = t("dictionary.message.many_search_result", count: @knowhows.count)
+      end
+      # 一度、検索件数を算出するための処理
+      @knowhows = @knowhows.page(params[:page])
     else
       @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.knowhow_list"
@@ -96,8 +149,20 @@ class KnowhowsController < ApplicationController
 
   # 検索用
   def set_search_params
-    params.require(:knowhow).permit(:knowhow_class, :category_id, :language_id,
-                                    :create_user_id, :update_user_id,
-                                    :title, :key_message, :content)
+    params.require(:knowhow).permit(:index_type, :search_type, :knowhow_class,
+                                    :category_id, :language_id, :key_message,
+                                    :user_id, :whole)
+  end
+
+  def make_command_one(search_item)
+    unless eval("params[:knowhow][:" + search_item + "].blank?")
+      @command = @command + ", {" + search_item + ": params[:knowhow][:" + search_item + "]}"
+    end
+  end
+
+  def make_command_two(search_item, search_target_one, search_target_two)
+    unless eval("params[:knowhow][:" + search_item + "].blank?")
+      @command = @command + ", {or: [{" + search_target_one + ": params[:knowhow][:" + search_item + "]}, {" + search_target_two + ": params[:knowhow][:" + search_item + "]}]}"
+    end
   end
 end

@@ -74,10 +74,12 @@ ja:
       update_user_name: "更新者"
       likes: "Likes"
       views: "Views"
-    # comment
-      comment: "コメント"
-      comment_user_name: "投稿者"
-      comment_at: "投稿日時"
+    # 検索用
+      search_type: "検索方法"
+      and_search: "and検索"
+      or_search: "or検索"
+      whole: "全文検索"
+      both: "ノウハウと質問"
     # ■メッセージ
     message:
     # 確認メッセージ
@@ -128,6 +130,8 @@ ja:
       category_delete_failed: "分類を削除できませんでした。"
       language_delete_failed: "言語を削除できませんでした。"
       user_type_change_failed: "ユーザ種別を変更できませんでした。"
+      no_search_result: "ノウハウが見付かりませんでした。"
+      many_search_result: "%{count}件のノウハウが見付かりました。"
     # 注意喚起メッセージ
       select_required: "※選択してください。"
       input_required: "※入力必須"

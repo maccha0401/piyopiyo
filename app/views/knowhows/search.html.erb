@@ -1,114 +1,114 @@
 <h1><%= t "dictionary.title.search_page" %></h1>
-<!-- ～line～ -->
-<div class="line"></div>
-
-<div class="container container-parent">
-  <table class="item-left">
-    <!-- 区分の出力 -->
-    <tr class="item">
-      <th class="item-title"><%= t "dictionary.item.knowhow_class" %></th>
-      <td class="item-content output-box">
-        <span class="output-class"><%= put_knowhow_class(@knowhow) %></span>
-      </td>
-    </tr>
-  </table>
-
-  <table>
-    <tr class="item">
-      <!-- 分類の出力 -->
-      <th class="item-title"><%= t "dictionary.item.category_name" %></th>
-      <td class="item-content output-box">
-        <span class="output-class"><%= @knowhow.category.name %></span>
-      </td>
-
-      <!-- 言語の出力 -->
-      <th class="item-title"><%= t "dictionary.item.language_name" %></th>
-      <td class="item-content output-box">
-        <span class="output-class">
-          <%= put_knowhow_language_name(@knowhow) %>
-        </span>
-      </td>
-    </tr>
-  </table>
-
-  <table class="item-right">
-    <tr class="item">
-      <!-- 更新者の出力 -->
-      <th class="item-title"><%= t "dictionary.item.update_user_name" %></th>
-      <td class="item-content output-box">
-        <%= put_knowhow_update_user_name(@knowhow) %>
-      </td>
-
-      <!-- 更新日時の出力 -->
-      <th class="item-title"><%= t "dictionary.item.updated_at" %></th>
-      <td class="item-content output-box">
-        <%= put_knowhow_updated_at(@knowhow) %>
-      </td>
-    </tr>
-
-    <tr class="item">
-      <!-- 作成者の出力 -->
-      <th class="item-title"><%= t "dictionary.item.create_user_name" %></th>
-      <td class="item-content output-box">
-        <%= put_knowhow_user_name(@knowhow.create_user) %>
-      </td>
-
-      <!-- 作成日時の出力 -->
-      <th class="item-title"><%= t "dictionary.item.created_at" %></th>
-      <td class="item-content output-box">
-        <%= l(@knowhow.created_at, format: :default) %>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<div class="container">
-  <!-- ～line～ -->
-  <div class="line"></div>
-
-
-  <table>
-    <!-- タイトルの出力 -->
-    <tr class="item">
-      <th class="item-title"><%= t "dictionary.item.title" %></th>
-      <td class="item-content output-box">
-        <span class="output-title"><%= @knowhow.title %></span>
-      </td>
-    </tr>
-
-    <!-- 検索キーの出力 -->
-    <tr class="item">
-      <th class="item-title"><%= t "dictionary.item.key_message" %></th>
-      <td class="item-content output-box">
-        <span class="output-title"><%= @knowhow.key_message %></span>
-      </td>
-    </tr>
-  </table>
-  <!-- ～line～ -->
-  <div class="line"></div>
-  <table>
-    <!-- 本文の出力 -->
-    <tr class="item">
-      <th class="item-title"><%= t "dictionary.item.content" %></th>
-    </tr>
-    <tr class="item">
-      <td class="item-content output-content">
-        <%= text_area :knowhow, :content, readonly: true %>
-      </td>
-    </tr>
-  </table>
-</div>
 
 <!-- ～line～ -->
 <div class="line"></div>
-<div class="container">
-  <% if logged_in? %>
-    <%= link_to t("dictionary.button.edit"), edit_knowhow_path(@knowhow.id),
-      type: "button", class: "design-button" %>
-    <% if admin? %>
-      <%= link_to t("dictionary.button.delete"), knowhow_path(@knowhow.id),
-        method: :delete,type: "button", class: "design-button",
-        data:{confirm: t("dictionary.message.delete_knowhow")} %>
-    <% end %>
-  <% end %>
-</div>
+
+<%= form_with(model: @knowhow, url: search_knowhows_path, local: true) do |form| %>
+  <div class="container">
+    <table>
+      <!-- 区分の入力欄 -->
+      <tr class="item">
+        <th class="item-title">
+          <%= form.label t("dictionary.item.knowhow_class") %>
+        </th>
+        <td class="item-content radio-button">
+          <%= form.radio_button :knowhow_class, false, {id: "radio1", checked: false} %>
+          <label for="radio1"><%= t "dictionary.item.knowhow" %></label>
+        </td>
+        <td class="item-content radio-button">
+          <%= form.radio_button :knowhow_class, true, {id: "radio2", checked: false} %>
+          <label for="radio2"><%= t "dictionary.item.question" %></label>
+        </td>
+        <td class="item-content radio-button">
+          <%= form.radio_button :knowhow_class, "", {id: "radio0", checked: true} %>
+          <label for="radio0"><%= t "dictionary.item.both" %></label>
+        </td>
+        <td class="attention"><%= t "dictionary.message.select_required" %></td>
+      </tr>
+    </table>
+
+    <!-- ～line～ -->
+    <div class="line"></div>
+
+    <table>
+      <!-- 検索方法の選択欄 -->
+      <tr class="item">
+        <th class="item-title">
+          <%= form.label t("dictionary.item.search_type") %>
+        </th>
+        <td class="item-content radio-button">
+          <%= form.radio_button :search_type, true, {id: "radio3", checked: false} %>
+          <label for="radio3"><%= t "dictionary.item.and_search" %></label>
+        </td>
+        <td class="item-content radio-button">
+          <%= form.radio_button :search_type, false, {id: "radio4", checked: true} %>
+          <label for="radio4"><%= t "dictionary.item.or_search" %></label>
+        </td>
+        <td class="attention"><%= t "dictionary.message.select_required" %></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr class="item">
+        <!-- 分類の入力欄 -->
+        <th class="item-title">
+          <%= form.label t("dictionary.item.category_name") %>
+        </th>
+        <td class="item-content input-box select-button">
+          <%= form.collection_select :category_id, Category.all, :id, :name,
+                                     include_blank: true %>
+        </td><td></td>
+        <!-- 言語の入力欄 -->
+        <th class="item-title"><%= form.label t("dictionary.item.language_name") %></th>
+        <td class="item-content input-box select-button">
+          <%= form.collection_select :language_id, Language.all, :id, :name,
+                                     include_blank: true %>
+        </td><td></td>
+        <!-- ユーザの入力欄 -->
+        <th class="item-title"><%= form.label t("dictionary.item.user_name") %></th>
+        <td class="item-content input-box select-button">
+          <%= form.collection_select :user_id, User.all, :id, :user_name,
+                                     include_blank: true %>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <!-- 検索キーの入力欄 -->
+      <tr class="item">
+        <th class="item-title">
+          <%= form.label t("dictionary.item.key_message") %>
+        </th>
+        <td class="item-content input-box input-title">
+          <%= form.text_field :key_message %>
+        </td>
+      </tr>
+    </table>
+
+    <!-- ～line～ -->
+    <div class="line"></div>
+
+    <table>
+      <!-- 全文検索の入力欄 -->
+      <tr class="item">
+        <th class="item-title"><%= form.label t("dictionary.item.whole") %></th>
+        <td class="item-content input-box input-title">
+          <%= form.text_field :whole %>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- ～line～ -->
+  <div class="line"></div>
+  <!-- ボタン -->
+  <div class="container">
+    <div class="item">
+      <%= form.hidden_field :index_type, value: "search" %>
+      <%= form.submit t("dictionary.button.search"), class: "design-submit" %>
+      <%= link_to t("dictionary.button.back"), :back, type: "button",
+                                               class: "design-button" %>
+    </div>
+  </div>
+<% end %>

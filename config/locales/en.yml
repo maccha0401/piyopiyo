@@ -19,7 +19,7 @@ en:
       comment_list: "Comment"
       new_comment: "New Comment"
       search_page: "Search KnowHow"
-      search_result: "検索結果"
+      search_result: "Search Result"
     # ■ボタン
     button:
     # 共通
@@ -74,10 +74,12 @@ en:
       update_user_name: "Update User"
       likes: "Likes"
       views: "Views"
-    # comment
-      comment: "Comment"
-      comment_user_name: "Comment User"
-      comment_at: "Comment At"
+    # 検索用
+      search_type: "How to Search?"
+      and_search: "and"
+      or_search: "or"
+      whole: "Full-text Search"
+      both: "Both"
     # ■メッセージ
     message:
     # 確認メッセージ
@@ -128,6 +130,8 @@ en:
       category_delete_failed: "Category Delete Failed!!"
       language_delete_failed: "Language Delete Failed!!"
       user_type_change_failed: "User Type Change Failed!!"
+      no_search_result: "No Knowhow."
+      many_search_result: "%{count} knowhows."
     # 注意喚起メッセージ
       select_required: "* Please Select."
       input_required: "* Necessary."
