@@ -44,6 +44,8 @@ ja:
       logout: "ログアウト"
       new_user: "ユーザ登録"
       login_page: "ログイン"
+      select_english: "Display English"
+      select_japanese: "Display Japanese"
     # フッター
       system_name: "ノウハウ管理システム"
     # ■項目

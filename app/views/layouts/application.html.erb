@@ -49,9 +49,9 @@
           <!-- i18n@共通（中央） -->
           <div class="footer-item">
             <% if params[:locale] == "ja" %>
-              <%= link_to "Display English", "#{request.path}?locale=en" %>
+              <%= link_to t("dictionary.button.select_english"), "#{request.path}?locale=en" %>
             <% else %>
-              <%= link_to "日本語で表示", "#{request.path}?locale=ja" %>
+              <%= link_to t("dictionary.button.select_japanese"), "#{request.path}?locale=ja" %>
             <% end %>
           </div>
         </div>

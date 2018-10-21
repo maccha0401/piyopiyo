@@ -44,6 +44,8 @@ en:
       logout: "LogOut"
       new_user: "New User"
       login_page: "LogIn"
+      select_english: "英語で表示"
+      select_japanese: "日本語で表示"
     # フッター
       system_name: "KnowHow Management System"
     # ■項目

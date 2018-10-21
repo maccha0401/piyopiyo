@@ -55,19 +55,19 @@
           <%= form.label t("dictionary.item.category_name") %>
         </th>
         <td class="item-content input-box select-button">
-          <%= form.collection_select :category_id, Category.all, :id, :name,
+          <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name,
                                      include_blank: true %>
         </td><td></td>
         <!-- 言語の入力欄 -->
         <th class="item-title"><%= form.label t("dictionary.item.language_name") %></th>
         <td class="item-content input-box select-button">
-          <%= form.collection_select :language_id, Language.all, :id, :name,
+          <%= form.collection_select :language_id, Language.all.order(name: :asc), :id, :name,
                                      include_blank: true %>
         </td><td></td>
         <!-- ユーザの入力欄 -->
         <th class="item-title"><%= form.label t("dictionary.item.user_name") %></th>
         <td class="item-content input-box select-button">
-          <%= form.collection_select :user_id, User.all, :id, :user_name,
+          <%= form.collection_select :user_id, User.all.order(user_name: :asc), :id, :user_name,
                                      include_blank: true %>
         </td>
       </tr>
