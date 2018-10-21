@@ -1,5 +1,5 @@
 class KnowhowsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index, :show, :search]
   before_action :require_admin, only: [:destroy]
   before_action :set_knowhow, only: [:show, :edit, :update, :destroy]
   before_action :set_params_knowhow, only: [:create]
@@ -13,6 +13,10 @@ class KnowhowsController < ApplicationController
       @knowhows = Knowhow.all.order(views_count: :desc)
                     .order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.ranking"
+    elsif params[:index_type] == "search"
+      # @knowhows = Knowhow.all.order(views_count: :desc)
+      #               .order(updated_at: :desc).page(params[:page])
+      # @page_title = "dictionary.title.search_result"
     else
       @knowhows = Knowhow.all.order(updated_at: :desc).page(params[:page])
       @page_title = "dictionary.title.knowhow_list"
@@ -29,7 +33,7 @@ class KnowhowsController < ApplicationController
   end
 
   def new
-    @knowhow = Knowhow.new
+    set_new_knowhow
   end
 
   def create
@@ -66,6 +70,10 @@ class KnowhowsController < ApplicationController
     end
   end
 
+  def search
+    set_new_knowhow
+  end
+
   private
 
   def knowhow_params
@@ -74,11 +82,22 @@ class KnowhowsController < ApplicationController
                                     :attachment_cache, :remove_attachment)
   end
 
+  def set_new_knowhow
+    @knowhow = Knowhow.new
+  end
+  
   def set_knowhow
     @knowhow = Knowhow.find(params[:id])
   end
 
   def set_params_knowhow
     @knowhow = Knowhow.new(knowhow_params)
+  end
+
+  # 検索用
+  def set_search_params
+    params.require(:knowhow).permit(:knowhow_class, :category_id, :language_id,
+                                    :create_user_id, :update_user_id,
+                                    :title, :key_message, :content)
   end
 end

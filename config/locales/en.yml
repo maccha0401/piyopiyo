@@ -18,6 +18,8 @@ en:
       language_list: "Language List"
       comment_list: "Comment"
       new_comment: "New Comment"
+      search_page: "Search KnowHow"
+      search_result: "検索結果"
     # ■ボタン
     button:
     # 共通
@@ -99,11 +101,11 @@ en:
       category_created: "Category Added."
       language_created: "Language Added."
       user_updated: "User Updated."
-      knowhow_updated: "KnowHou Updated."
+      knowhow_updated: "KnowHow Updated."
       category_updated: "Category Updated."
       language_updated: "Language Updated."
       user_deleted: "User Deleted."
-      knowhow_deleted: "KnowHou Deleted."
+      knowhow_deleted: "KnowHow Deleted."
       comment_deleted: "Comment Deleted."
       like_deleted: "This KnowHow MISS YOU..."
       category_deleted: "Category Deleted."

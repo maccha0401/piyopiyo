@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   # end
 
   # ■knowhow
-  resources :knowhows
+  resources :knowhows do
+    collection do
+      get :search
+    end
+  end
 
   # ■session
   get "/users/login", to: "sessions#new"

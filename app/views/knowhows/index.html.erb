@@ -1,12 +1,11 @@
 <h1><%= t @page_title %></h1>
 <!-- ～line～ -->
 <div class="line"></div>
-
-<div class="container">
+<div class="container knowhow-list">
   <table>
     <!-- タイトル行の出力 -->
     <tr class="item-list">
-      <th class="item-title"><%= t "dictionary.item.likes" %></th>
+      <th class="item-title" id="test"><%= t "dictionary.item.likes" %></th>
       <th class="item-title"><%= t "dictionary.item.views" %></th>
       <th class="item-title"><%= t "dictionary.item.knowhow_class" %></th>
       <th class="item-title"><%= t "dictionary.item.title" %></th>
@@ -19,7 +18,7 @@
     </tr>
     <!-- 一覧の出力 -->
     <% @knowhows.each do |knowhow| %>
-      <tr class="item-list">
+      <tr class="item-list knowhow-item-list">
         <td class="item-content-knowhow">
           <%= knowhow.likes_count %><%= t "dictionary.item.likes" %>
         </td>
@@ -30,7 +29,7 @@
           <%= put_knowhow_class(knowhow) %>
         </td>
         <td class="item-content-knowhow">
-          <%= link_to knowhow.title, knowhow_path(knowhow.id)  %>
+          <%= link_to knowhow.title, knowhow_path(knowhow.id) %>
         </td>
         <td class="item-content-knowhow">
           <%= knowhow.category.name %>
@@ -65,3 +64,6 @@
   </table>
   <%= paginate @knowhows %>
 </div>
+
+<!-- テーブルの行全体をリンクとする。 -->
+<%= javascript_include_tag 'knowhow.js' %>

@@ -18,6 +18,8 @@ ja:
       language_list: "言語一覧"
       comment_list: "コメント"
       new_comment: "コメント入力"
+      search_page: "検索画面"
+      search_result: "検索結果"
     # ■ボタン
     button:
     # 共通

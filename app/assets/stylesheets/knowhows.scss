@@ -108,3 +108,14 @@
   justify-content: center;
   margin-top: 5vh;
 }
+// index ページの調整
+.knowhow-list {
+  font-size: x-small;
+  white-space: nowrap;
+}
+.knowhow-item-list:hover {
+  text-decoration: none;
+  color: pink;
+  cursor: pointer;
+  cursor: hand;
+}
