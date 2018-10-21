@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     @user.user_type = false
     if @user.save
       session[:user_id] = @user.id
-      flash.now[:notice] = t("dictionary.message.user_created")
+      flash[:notice] = t("dictionary.message.user_created")
 
       redirect_to :mypage
     else
-      flash.now[:danger] = t("dictionary.message.user_create_failed")
+      flash[:danger] = t("dictionary.message.user_create_failed")
 
       render new_users_path
     end
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash.now[:notice] = t("dictionary.message.user_updated")
+      flash[:notice] = t("dictionary.message.user_updated")
 
       redirect_to :mypage
     else
-      flash.now[:danger] = t("dictionary.message.user_update_failed")
+      flash[:danger] = t("dictionary.message.user_update_failed")
 
       render edit_users_path
     end
@@ -42,12 +42,12 @@ class UsersController < ApplicationController
 
   def destroy
     if current_user.id == params[:id]
-      flash.now[:danger] = t("dictionary.message.user_delete_failed")
+      flash[:danger] = t("dictionary.message.user_delete_failed")
     else
       if User.find(params[:id]).destroy
-        flash.now[:notice] = t("dictionary.message.user_deleted")
+        flash[:notice] = t("dictionary.message.user_deleted")
       else
-        flash.now[:danger] = t("dictionary.message.user_delete_failed")
+        flash[:danger] = t("dictionary.message.user_delete_failed")
       end
     end
 

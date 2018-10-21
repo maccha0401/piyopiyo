@@ -26,12 +26,12 @@
           <%= link_to :root, class: "header-item" do %>
             <%= image_tag "logo.png", size: "45x33" %>
           <% end %>
-          <!-- ランキング（左側） -->
+          <!-- ランキング@共通（左側） -->
           <%= link_to controller: :knowhows, action: :index,
             index_type: "views", class: "header-item" do %>
             <%= t "dictionary.button.ranking" %>
           <% end %>
-          <!-- 検索（左側） -->
+          <!-- 検索@共通（左側） -->
           <%= link_to search_knowhows_path, class: "header-item" do %>
             <%= t "dictionary.button.search" %>
           <% end %>
@@ -43,6 +43,17 @@
               <%= t "dictionary.button.new_knowhow" %>
             <% end %>
           <% end %>
+        </div>
+
+        <div class="header-middle">
+          <!-- i18n@共通（中央） -->
+          <div class="footer-item">
+            <% if params[:locale] == "ja" %>
+              <%= link_to "Display English", "#{request.path}?locale=en" %>
+            <% else %>
+              <%= link_to "日本語で表示", "#{request.path}?locale=ja" %>
+            <% end %>
+          </div>
         </div>
 
         <div class="header-right">
@@ -106,6 +117,7 @@
       <% else %>
         <nav class="footer nologin-color">
       <% end %>
+
       <nav class="footer">
         <div class="footer-left">
           <!-- ホーム@共通（左側） -->
@@ -113,6 +125,7 @@
             <%= image_tag "home.png", size: "45x33" %>
           <% end %>
         </div>
+
         <div class="footer-middle">
           <!-- システム名@共通（中央） -->
           <div class="footer-item">
@@ -120,6 +133,7 @@
             <%= t "dictionary.button.system_name" %>
           </div>
         </div>
+
         <div class="footer-right"></div>
       </nav>
     </footer>

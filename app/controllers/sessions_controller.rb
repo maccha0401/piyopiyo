@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     # ログインできた場合
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      flash.now[:danger] = t("dictionary.message.login_succeeded")
+      flash[:notice] = t("dictionary.message.login_succeeded")
 
       # 前のページがなければroot へ、あれば前のページへ。
       if session[:previous_url].nil?
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def destroy
     # ■ログアウト
     session.delete(:user_id)
-    flash.now[:notice] = t("dictionary.message.logout_succeeded")
+    flash[:notice] = t("dictionary.message.logout_succeeded")
 
     redirect_to :root
   end
