@@ -1,24 +1,32 @@
-# README
+# ノウハウ管理システム
+https://piyopiyopiyo.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**『ノウハウ共有によるチーム力の向上』** を目的とするRailsアプリケーションです。
 
-Things you may want to cover:
+## 概要
 
-* Ruby version
+本サービスをチームへ導入することで、以下のことを実現できます！
 
-* System dependencies
+* **あなたのノウハウを、チームのために活かすことができます！**
 
-* Configuration
+* **チームメンバのノウハウにより、あなたのスキルがupします！**
 
-* Database creation
+## 機能説明
 
-* Database initialization
+未登録ユーザ、一般ユーザ、管理ユーザにより、できることが異なります。
 
-* How to run the test suite
+* 未登録ユーザは、以下のことができます。
 
-* Services (job queues, cache servers, search engines, etc.)
+  * 他の人の**ノウハウを閲覧**し、活用することができす。
+  * **ノウハウを検索**し、欲しい知識を得ることができます。
 
-* Deployment instructions
+* 一般ユーザは、未登録ユーザのできることに加え、以下のことができます。
 
-* ...
+  * 将来的に役立ちそうなノウハウを、**お気に入りに登録**することができます。
+  * 自分の**ノウハウを投稿**し、みんなに活用してもらうことができます。
+  * 自分の知識により、既存の**ノウハウを更新**することができます。
+
+* 管理者ユーザは、一般ユーザのできることに加え、以下のことができます。
+
+  * ユーザの削除や権限変更をすることができます。
+  * ノウハウの分類を追加、削除することができます。
