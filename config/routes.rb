@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # ■knowhow
   resources :knowhows do
     collection do
+      get :get_random_knowhow
       get :search
       post :search, to: "knowhows#index"
     end

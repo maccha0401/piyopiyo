@@ -137,5 +137,26 @@
         <div class="footer-right"></div>
       </nav>
     </footer>
+    
+    <!-- ■piyo -->
+    <div id="piyo">
+      <%= image_tag "piyopiyo.gif", size: "200x118" %>
+    </div>
+
+<!-- モーダルエリアここから -->
+<section id="modalArea" class="modalArea">
+  <div id="modalBg" class="modalBg"></div>
+  <div class="modalWrapper">
+    <div class="modalContents"></div>
+    <div id="closeModal" class="closeModal">
+      ×
+    </div>
+  </div>
+</section>
+<!-- モーダルエリアここまで -->
+
   </body>
 </html>
+
+<!-- piyopiyo -->
+<%= javascript_include_tag 'piyo.js' %>

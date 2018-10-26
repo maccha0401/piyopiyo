@@ -1,5 +1,5 @@
 class KnowhowsController < ApplicationController
-  before_action :require_login, except: [:index, :show, :search]
+  before_action :require_login, except: [:index, :show, :search, :get_random_knowhow]
   before_action :require_admin, only: [:destroy]
   before_action :set_knowhow, only: [:show, :edit, :update, :destroy]
   before_action :set_params_knowhow, only: [:create]
@@ -125,6 +125,11 @@ class KnowhowsController < ApplicationController
 
   def search
     set_new_knowhow
+  end
+
+  def get_random_knowhow
+    @knowhow = Knowhow.find(Knowhow.pluck(:id).sample(1).first)
+    render partial: "random", locals: {knowhow: @knowhow}
   end
 
   private
