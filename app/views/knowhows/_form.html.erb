@@ -61,7 +61,7 @@
       <tr class="item">
         <th class="item-title"><%= form.label t("dictionary.item.title") %></th>
         <td class="item-content input-box input-title">
-          <%= form.text_field :title, required: true %>
+          <%= form.text_field :title, required: true, maxlength: 24 %>
         </td>
         <td class="attention"><%= t "dictionary.message.input_required" %></td>
       </tr>
@@ -72,7 +72,7 @@
           <%= form.label t("dictionary.item.key_message") %>
         </th>
         <td class="item-content input-box input-title">
-          <%= form.text_field :key_message %>
+          <%= form.text_field :key_message, maxlength: 100 %>
         </td>
         <td class="attention">
           <%= t "dictionary.message.input_not_required" %>
@@ -92,7 +92,7 @@
       </tr>
       <tr class="item">
         <td class="item-content input-box input-content">
-          <%= form.text_area :content, required: true %>
+          <%= form.text_area :content, required: true, maxlength: 500 %>
         </td>
       </tr>
     </table>

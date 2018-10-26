@@ -40,7 +40,7 @@
     <table>
       <!-- 分類名称の入力欄 -->
       <tr class="item">
-        <td class="item-content"><%= form.text_field :name, required: true %></td>
+        <td class="item-content"><%= form.text_field :name, required: true, maxlength: 24 %></td>
         <!-- ボタン -->
         <td class="item-content">
           <%= form.submit t("dictionary.button.add"), class: "design-submit" %>
