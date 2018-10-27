@@ -82,6 +82,8 @@ class KnowhowsController < ApplicationController
       if @knowhow.create_user_id != current_user.id && @knowhow.update_user_id != current_user.id
         @knowhow.increment!(:views_count, 1)
       end
+    else
+      @knowhow.increment!(:views_count, 1)
     end
   end
 
